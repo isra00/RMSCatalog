@@ -1,0 +1,244 @@
+/**
+ * From Adobe Kuler's "sandy stone" color theme
+ *
+ * Dark sand:	E6E2AF
+ * Light sand:	EFECCA
+ * Brown:		A7A37E
+ * Navy blue:	046380
+ * Dark green:	002F2F
+ */
+
+html, body {
+	height: 100%;
+	hyphens: none;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 145%;
+	margin: 0;
+	color: #222;
+	background: #fdfdfd;
+	hyphens: auto;
+}
+
+a {
+	color: #084254;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+h5 {
+	margin: 0;
+}
+
+header {
+	overflow: hidden;
+	margin: 0 0 2em;
+	padding: 1em;
+	background: #003d30;
+	color: white;
+	border-bottom: 4px solid #D4FF2A;
+}
+	header .logo {
+		height: 2.5em;
+		margin-right: .5em;
+		vertical-align: top;
+	}
+	header a {
+		color: white;
+	}
+	header h2 {
+		margin: 0;
+		padding: .5rem 0;
+		display: inline-block;
+	}
+
+	header form {
+		float: right;
+		margin: .5rem 0;
+	}
+
+	header .e-library {
+		float: right;
+		margin: 0 .5em .5em 1.2em;
+		line-height: 110%;
+		font-weight: bold;
+		border-left: 1px dotted rgba(255, 255, 255, .6);
+		padding-left: .8em;
+	}
+		header .e-library small {
+			display: block;
+			font-weight: normal;
+		}
+
+.main {
+	width: 50rem;
+	max-width: 95%;
+	margin: 0 auto 2em;
+}
+
+
+/******* HOME ********/
+
+.search-home {
+	margin: 1.5em 0 2em;
+	font-size: 1.2em;
+	line-height: 180%;
+}
+	.search-home label {
+		display: block;
+	}
+	.search-home input[type="text"] {
+		padding: .1em .2em;
+		/*display: block;*/
+		width: 30rem;
+		max-width: 90%;
+		font-size: 1.2em;
+	}
+	.search-home button {
+		padding: .4em .5em;
+		vertical-align: top;
+	}
+
+/******* SEARCH RESULTS ******/
+
+.search-results {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+	.search-results td {
+		border-bottom: 1px solid #ccc;
+		padding: .7em 0;
+		vertical-align: top;
+	}
+		.search-results td:first-child {
+			padding-right: 5%;
+			width: 75%;
+		}
+	.search-results em {
+		background: #fffbb8;
+		font-style: normal;
+	}
+	.b-title, .b-subtitle {
+		margin: 0;
+		font-weight: normal;
+		hyphens: none;
+		line-height: 120%;
+	}
+
+	.b-title {
+		font-size: 1.2em;
+	}
+	.b-subtitle {
+		font-size: .9em;
+		color: #444;
+	}
+	.b-volume {
+		color: #444;
+		font-size: .85em;
+	}
+	.b-author {
+		font-style: italic;
+		font-size: 1em;
+		margin-top: 0;
+		hyphens: none;
+	}
+	.b-class {
+		font-size: .9em;
+		color: #444;
+		font-weight: bold;
+	}
+
+
+/********* BOOK ***********/
+
+	.book-single .b-title  {
+		font-size: 1.5em;
+		margin-bottom: .2em;
+	}
+	.book-single .b-subtitle  {
+		font-size: 1.1em;
+		margin-bottom: 1em;
+	}
+	.book-single .b-author {
+		margin: .5em 0;
+	}
+	.book-single .b-language {
+		float: right;
+		margin: 0 0 1em 1em;
+		font-size: .9em;
+	}
+
+.book-fields {
+	display: inline-block;
+	width: 45%;
+}
+
+.book-fields li {
+	margin: .4em 0;
+}
+
+.where {
+	/*border-top: 1px solid silver;*/
+	margin-top: 1em;
+	padding-top: .5em;
+	background: #eee;
+	width: 17em;
+	max-width: 99%;
+	display: inline-block;
+	padding: .5em 1em;
+	float: right;
+	font-size: .9em;
+	box-shadow: 1px 1px 2px silver;
+	border-radius: .1em;
+}
+	.where h6 {
+		font-style: italic;
+		font-size: 1em;
+		margin: 0 0 .5em;
+	}
+
+.label {
+	display: inline-block;
+	background: white;
+	border: 1px dotted gray;
+	border-radius: .2em;
+	margin: 1em 0;
+	padding: .1em .3em;
+	font-size: .9em;
+	font-weight: bold;
+	text-align: center;
+	line-height: 120%;
+}
+	.label img {
+		padding: .4em 0;
+	}
+	.label-theology {
+		font-family: "Times New Roman", serif;
+	}
+	.label-philosophy {
+		font-family: "Roboto", serif;
+	}
+		.label-philosophy small {
+			font-family: "Roboto Condensed", serif;
+			line-height: 60%;
+		}
+
+/******** GENERIC **********/
+
+.inline {
+	display: inline;
+}
+
+.center {
+	text-align: center;
+}

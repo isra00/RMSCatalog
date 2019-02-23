@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>{% if pageTitle is defined %}{{ pageTitle }} | {% endif %}Library Catalog</title>
+	<link rel="stylesheet" href="{{ global.request.basepath }}/style.css" type="text/css" />
+</head>
+
+<body class="{{ bodyClass|default() }}">
+
+	<header>
+		<img src="{{ global.request.basePath }}/img/SRM-white.svg" alt="RMS Tz" class="logo">
+		<h2><a href="{{ global.request.basePath }}/">RMS Library catalog</a></h2>
+
+		<a class="e-library" href="//server.rms.tz/cops">
+			<small>Go to the</small>
+			E-Library
+		</a>
+
+		{% block headerSearch %}
+		<form method="get" action="/search" class="search-header">
+			<input name="searchBooks" type="text" placeholder="Search the Catalog">
+			<button type="submit" name="send">🔍 Search</button>
+		</form>
+		{% endblock %}
+
+	</header>
+
+	{% block content %}{% endblock %}
+
+</body>
+</html>

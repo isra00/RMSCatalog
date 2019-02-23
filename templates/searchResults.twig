@@ -1,0 +1,55 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<section class="main">
+
+		<h1>Found {{ records|length }} records with "{{ searchTerm }}"</h1>
+
+		<table class="search-results">
+		{% for record in records %}
+			<tr>
+				<td>
+					<a href="/book/{{ record.id }}">
+						<h2 class="b-title">
+							<span class="b-language">
+								{% if record.flag is defined %}
+								<img src="{{ global.request.basePath }}/img/flags/{{ record.flag }}.png">
+								{% endif %}
+							</span>
+							{{ record.title|raw }} 
+							{% if record.volume %}<span class="b-volume">(Vol. {{ record.volume }})</span>{% endif %}
+						</h2>
+						<h4 class="b-subtitle">{{ record.subtitle|raw }}</h4>
+					</a>
+
+					<span class="b-class">{{ record.class }}</span>
+				</td>
+				<td>
+					<h3 class="b-author"><a href="/author/...">{{ record.author|raw }}</a></h3>
+				</td>
+			</tr>
+			{#<tr>
+				<td>
+					<span class="b-language">ENGLISH</span>
+					<a href="/book/2312">
+						<h2 class="b-title">A History of Philosophy Volume 7 Part I</h2>
+						<h4 class="b-subtitle">Modern Philosophy. Fichte to Hegel</h4>
+					</a>
+					
+					<span class="b-class">P3</span>
+					<span class="b-call">COP 1962/7/1</span>
+					
+					<span class="b-year">1962</span>
+					<span class="b-volume">7/1</span>
+				</td>
+				<td>
+					<h3 class="b-author"><a href="">Frederick Copleston</a></h3>
+				</td>
+			</tr>#}
+		{% endfor %}
+		</table>
+
+	</section>
+
+{% endblock %}

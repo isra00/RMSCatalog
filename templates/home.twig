@@ -1,0 +1,24 @@
+{% extends "base.twig" %}
+
+{% block headerSearch %}{% endblock %}
+
+{% block content %}
+
+	<section class="main">
+
+		<form method="get" action="/search" class="search-home">
+			<label for="searchBooks">Search the Library Catalog:</label>
+			<input name="searchBooks" type="text" placeholder="e.g. Von Balthasar, Theo-Drama" required>
+			<button type="submit" name="send">🔍 Search</button>
+		</form>
+
+		<p>or browse the classification:</p>
+		
+		<ul>
+			<li>Philosophy</li>
+			<li>Theology</li>
+		</ul>
+
+	</section>
+
+{% endblock %}
