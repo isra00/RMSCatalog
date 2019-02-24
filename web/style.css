@@ -45,6 +45,11 @@ header {
 	color: white;
 	border-bottom: 4px solid #D4FF2A;
 }
+	header .inner {
+		width: 50rem;
+		max-width: 100%;
+		margin: 0 auto;
+	}
 	header .logo {
 		height: 2.5em;
 		margin-right: .5em;
@@ -61,12 +66,12 @@ header {
 
 	header form {
 		float: right;
-		margin: .5rem 0;
+		margin: .5rem 0 0 1em;
 	}
 
 	header .e-library {
 		float: right;
-		margin: 0 .5em .5em 1.2em;
+		margin: 0 .5em 0 1.2em;
 		line-height: 110%;
 		font-weight: bold;
 		border-left: 1px dotted rgba(255, 255, 255, .6);
@@ -114,6 +119,7 @@ header {
 	margin: 0;
 	border-spacing: 0;
 	border-collapse: collapse;
+	width: 100%;
 }
 	.search-results td {
 		border-bottom: 1px solid #ccc;
@@ -124,15 +130,28 @@ header {
 			padding-right: 5%;
 			width: 75%;
 		}
-	.search-results em {
-		background: #fffbb8;
-		font-style: normal;
-	}
+		.search-results td p {
+			margin: .5em 0 .2em;
+		}
+		.search-results .b-classification {
+			font-size: .9em;
+			font-weight: bold;
+			color: #666;
+			background: url(img/sidebar-tree-symbolic.svg) left center no-repeat;
+			background-size: 16px;
+			padding-left: 22px;
+		}
+		.search-results td em {
+			background: #fffbb8;
+			font-style: inherit;
+		}
+
 	.b-title, .b-subtitle {
 		margin: 0;
 		font-weight: normal;
 		hyphens: none;
-		line-height: 120%;
+		line-height: 130%;
+		margin-bottom: .2em;
 	}
 
 	.b-title {
@@ -148,52 +167,97 @@ header {
 	}
 	.b-author {
 		font-style: italic;
-		font-size: 1em;
+		font-size: 1.1em;
 		margin-top: 0;
 		hyphens: none;
+		background: url(img/author.svg) left top no-repeat;
+		background-size: 20px;
+		padding-left: 30px;
 	}
-	.b-class {
-		font-size: .9em;
-		color: #444;
-		font-weight: bold;
-	}
+	
 
 
 /********* BOOK ***********/
 
+	.book-single .b-language {
+		margin: .2em 0;
+		font-size: .9em;
+		font-weight: bold;
+	}
 	.book-single .b-title  {
 		font-size: 1.5em;
-		margin-bottom: .2em;
 	}
 	.book-single .b-subtitle  {
 		font-size: 1.1em;
-		margin-bottom: 1em;
+		margin-bottom: .5em;
 	}
 	.book-single .b-author {
-		margin: .5em 0;
+		margin: .5em 0 1em;
 	}
-	.book-single .b-language {
-		float: right;
-		margin: 0 0 1em 1em;
-		font-size: .9em;
+
+.b-class-tree {
+	font-size: .9em;
+	line-height: 140%;
+	color: #555;
+}
+	.book-fields .b-class-tree li {
+		margin: .1em 0;
+	}
+	.b-class-tree li::before {
+		content: "⤷";
+	}
+		.b-class-tree .level-0::before {
+			content: "";
+		}
+
+	.b-class-tree .level-1 {
+		text-indent: 0em;
+	}
+	.b-class-tree .level-2 {
+		text-indent: .6em;
+	}
+	.b-class-tree .level-3 {
+		text-indent: 1.2em;
+	}
+	.b-class-tree .level-4 {
+		text-indent: 1.8em;
+	}
+
+	.book-fields .b-class-tree li.b-class-main {
+		margin-top: .2em;
+		font-size: 1.1em;
+		color: black;
+	}
+	.b-class {
+		color: #444;
 	}
 
 .book-fields {
 	display: inline-block;
-	width: 45%;
+	width: 32rem;
+	max-width: 100%;
 }
 
-.book-fields li {
-	margin: .4em 0;
+.book-fields > li {
+	margin: .4em 1em .4em 0;
+	display: inline-block;
+	width: 14rem;
+	max-width: 45%;
+	vertical-align: top;
 }
+	.book-fields li.b-classification {
+		width: 100%;
+		max-width: 95%;
+		margin-bottom: 1em;
+	}
 
 .where {
 	/*border-top: 1px solid silver;*/
 	margin-top: 1em;
 	padding-top: .5em;
 	background: #eee;
-	width: 17em;
-	max-width: 99%;
+	width: 15rem;
+	max-width: 95%;
 	display: inline-block;
 	padding: .5em 1em;
 	float: right;
@@ -241,4 +305,31 @@ header {
 
 .center {
 	text-align: center;
+}
+
+
+/******************************       SMALL      **************************/
+
+@media only screen and (max-width: 50rem) {
+
+	.where {
+		float: none;
+	}
+
+}
+
+
+/******************************     VERY TINY    **************************/
+
+@media only screen and (max-width: 30rem) {
+
+	header .e-library {
+		display: none;
+	}
+
+	header form {
+		float: none;
+		margin-top: 1em;
+		margin-left: 0;
+	}
 }

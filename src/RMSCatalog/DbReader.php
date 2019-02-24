@@ -47,7 +47,13 @@ class DbReader
 		foreach ($lines as $line)
 		{
 			$line = array_combine($columns, str_getcsv($line));
-			$db[$line['id']] = $line;
+			
+			//Catalog problem: book not classified
+			if (!empty($line['class']))
+			{
+				$db[$line['id']] = $line;
+			}
+
 		}
 
 		return $db;
@@ -55,6 +61,19 @@ class DbReader
 
 	public function cookRecord($record)
 	{
+		foreach ($record as &$column)
+		{
+			if (!is_array($column))
+			{
+				$column = trim($column);
+			}
+		}
+
+		if (strlen($record['subtitle']) < 3)
+		{
+			$record['subtitle'] = null;
+		}
+
 		$flags = [
 			'ENGLISH' 		=> 'gb',
 			'SPANISH' 		=> 'es',
@@ -65,15 +84,18 @@ class DbReader
 			'GREEK' 		=> 'gr',
 			'LATIN' 		=> 'va',
 			'SWAHILI' 		=> 'tz',
-			'ARABIC' 		=> 'ar',
+			'ARABIC' 		=> 'sa',
+			'HEBREW' 		=> 'il',
 		];
 
 		if (!empty($record['language']))
 		{
-			$record['flag'] = $flags[$record['language']] ?? $flags[$record['language']];
+			$record['flag'] = isset($flags[$record['language']]) ? $flags[$record['language']] : null;
 		}
 
 		$record['section'] = ($record['class'][0] == 'T') ? 'Theology' : 'Philosophy';
+
+		$record['classLabel'] = $this->app['classificationReader']->readClassification()[$record['class']];
 
 		return $record;
 	}

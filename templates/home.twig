@@ -8,17 +8,19 @@
 
 		<form method="get" action="/search" class="search-home">
 			<label for="searchBooks">Search the Library Catalog:</label>
-			<input name="searchBooks" type="text" placeholder="e.g. Von Balthasar, Theo-Drama" required>
+			<input name="searchBooks" type="text" placeholder="e.g. Von Balthasar, African culture" required autofocus>
 			<button type="submit" name="send">🔍 Search</button>
 		</form>
 
-		<p>or browse the classification:</p>
+		<p>It searches in the author, title and subtitle of the books.</p>
+
+		<!--<p>or browse the classification:</p>
 		
 		<ul>
 			<li>Philosophy</li>
 			<li>Theology</li>
 		</ul>
-
+-->
 	</section>
 
 {% endblock %}

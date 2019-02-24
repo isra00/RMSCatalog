@@ -3,34 +3,27 @@
 {% block content %}
 
 	<section class="main book-single">
-
-		<span class="b-language">
-			<img src="{{ global.request.baseUrl }}/img/flags/{{ record.flag }}.png"> {{ record.language }}
-		</span>
 		
-		<h3 class="b-author"><a href="/author/...">{{ record.author }}</a></h3>
+		<div class="b-language">
+			{% if record.flag %}<img src="{{ global.request.baseUrl }}/img/flags/{{ record.flag }}.png">{% endif %}
+			{{ record.language }}
+		</div>
+
 		<h2 class="b-title">{{ record.title }} {% if record.volume %}<span class="b-volume">(Vol. {{ record.volume }})</span>{% endif %}</h2>
 		<h4 class="b-subtitle">{{ record.subtitle }}</h4>
 
-
 		<ul class="book-fields">
 
-			<li>
-				<h5>Classification</h5>
-				<span class="b-class">
-					{{ record.class }} 
-					{# <a href="">Popes</a> &rsaquo; <a href="">John Paul II</a> &rsaquo; <a href="">Apostolic Exhortations</a> #}
-				</span>
-			</li>
-
+			<h3 class="b-author"><a href="/author/...">{{ record.author }}</a></h3>
+			
 			<li class="b-year">
-				<h5>Year</h5>
+				<h5>Year of publication</h5>
 				{{ record.year }}
 			</li>
 
 			<li class="b-isbn">
 				<h5>ISBN</h5>
-				{{ record.isbn|default('Not recorded') }}
+				{{ record.isbn|default('<em>(not recorded)</em>')|raw }}
 			</li>
 
 			<li class="b-call">
@@ -41,6 +34,26 @@
 			<li class="b-exemplars">
 				<h5>Exemplar</h5>
 				{{ record.exemplar }}
+			</li>
+
+			<li class="b-classification">
+				<h5>Classification</h5>
+				<ul class="b-class-tree">
+					<li class="level-0">
+						<span class="b-class">{{ record.section }}</span>
+					</li>
+					{% for class, label in record.classTree %}
+					<li class="level-{{ loop.index }}">
+						<span class="b-class">{{ class }}</span>
+						<span class="b-class-label">{{ label }}</span>
+					</li>
+					{% endfor %}
+
+					<li class="b-class-main level-{{ record.classTree|length + 1 }}">
+						<span class="b-class">{{ record.class }}</span>
+						<span class="b-class-label">{{ record.classLabel }}</span>
+					</li>
+				</ul>
 			</li>
 
 		</ul>

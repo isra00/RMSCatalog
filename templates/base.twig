@@ -11,21 +11,22 @@
 <body class="{{ bodyClass|default() }}">
 
 	<header>
-		<img src="{{ global.request.basePath }}/img/SRM-white.svg" alt="RMS Tz" class="logo">
-		<h2><a href="{{ global.request.basePath }}/">RMS Library catalog</a></h2>
+		<div class="inner">
+			<img src="{{ global.request.basePath }}/img/SRM-white.svg" alt="RMS Tz" class="logo">
+			<h2><a href="{{ global.request.basePath }}/">RMS Library catalog</a></h2>
 
-		<a class="e-library" href="//server.rms.tz/cops">
-			<small>Go to the</small>
-			E-Library
-		</a>
+			<a class="e-library" href="//server.rms.tz/cops">
+				<small>Go to the</small>
+				E-Library
+			</a>
 
-		{% block headerSearch %}
-		<form method="get" action="/search" class="search-header">
-			<input name="searchBooks" type="text" placeholder="Search the Catalog">
-			<button type="submit" name="send">🔍 Search</button>
-		</form>
-		{% endblock %}
-
+			{% block headerSearch %}
+			<form method="get" action="/search" class="search-header">
+				<input name="searchBooks" type="text" placeholder="Search the Catalog" value="{{ global.request.get('searchBooks') }}" required>
+				<button type="submit" name="send">🔍 Search</button>
+			</form>
+			{% endblock %}
+		</div>
 	</header>
 
 	{% block content %}{% endblock %}

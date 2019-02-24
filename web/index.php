@@ -3,21 +3,35 @@
 require '../vendor/autoload.php';
 
 use \Symfony\Component\HttpFoundation\Request;
-use \RMSCatalog\DbReader;
 
 $app = new \Silex\Application;
 
 $app['config'] = require __DIR__ . '/../config.php';
 $app['debug']  = $app['config']['debug'];
 
+/* 
+ * SILEX PROVIDERS 
+ */
+
 $app->register(new \Silex\Provider\TwigServiceProvider(), array(
 	'twig.path' => $app['config']['templates_dir']
 ));
 
 
+/*
+ * CUSTOM PROVIDERS
+ */
 $app['dbReader'] = function() use ($app) {
-	return new DbReader($app);
+	return new \RMSCatalog\DbReader($app);
 };
+$app['classificationReader'] = function() use ($app) {
+	return new \RMSCatalog\ClassificationReader($app);
+};
+
+
+/*
+ * CONTROLLERS
+ */
 
 $app->get('/', function(Request $req) use ($app)
 {
@@ -26,36 +40,34 @@ $app->get('/', function(Request $req) use ($app)
 
 $app->get('/search', function(Request $req) use ($app)
 {
-	$searchTerm = $req->get('searchBooks');
-	$allRecords = $app['dbReader']->readDb();
-
-	$found = [];
-
-	foreach ($allRecords as $record)
-	{
-		if (stripos($record['title'], $searchTerm) || stripos($record['subtitle'], $searchTerm) || stripos($record['author'], $searchTerm))
-		{
-			$record['title'] 	= str_replace($searchTerm, "<em>$searchTerm</em>", $record['title']);
-			$record['subtitle'] = str_replace($searchTerm, "<em>$searchTerm</em>", $record['subtitle']);
-			$record['author'] 	= str_replace($searchTerm, "<em>$searchTerm</em>", $record['author']);
-
-			$found[] = $app['dbReader']->cookRecord($record);
-		}
-	}
+	$searchString = trim($req->get('searchBooks'));
+	$searchEngine = new \RMSCatalog\SearchEngine($app['dbReader']);
+	$results 	  = $searchEngine->search($searchString);
 
 	return $app['twig']->render('searchResults.twig', [
-		'searchTerm' => $searchTerm,
-		'records' 	 => $found,
+		'searchTerm' => $searchString,
+		'results' 	 => $results,
 	]);
 });
 
-$app->get('/book/{id}', function(Request $req, int $id) use ($app)
+$app->get('/record/{id}', function(Request $req, int $id) use ($app)
 {
 	$record = $app['dbReader']->cookRecord(
 		$app['dbReader']->readDb()[$id]
 	);
 
-	return $app['twig']->render('book.twig', ['record' => $record]);
+	$record['classTree'] = $app['classificationReader']->getParents($record['class']);
+
+	return $app['twig']->render('record.twig', ['record' => $record]);
+});
+
+
+$app->get('/carallo', function() use ($app)
+{
+	$collator = new \Collator('es_ES');
+	var_dump($collator->compare('filosofía', 'filosofia'));
+
+	return "";
 });
 
 

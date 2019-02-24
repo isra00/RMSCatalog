@@ -1,19 +1,10 @@
 <?php
 
-return array(
+return [
 
-/*	'db' => [
-		'host'		=> 'localhost',
-		'user'		=> 'root',
-		'password'	=> 'root',
-		'database'	=> 'resucilex',
-		'charset'	=> 'utf8'
-	],*/
+	'templates_dir'			=> __DIR__ . '/templates',
+	'dbFile' 				=> __DIR__ . '/LIBRARY.csv',
+	'classificationFile' 	=> __DIR__ . '/CLASSIFICATION.csv',
 
-	'templates_dir'		=> __DIR__ . '/templates',
-
-	'debug' => true,
-
-	'dbFile' => __DIR__ . '/LIBRARY.csv'
-
-);
+	'debug' 				=> false,
+];
