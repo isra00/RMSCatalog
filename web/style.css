@@ -43,7 +43,7 @@ header {
 	padding: 1em;
 	background: #003d30;
 	color: white;
-	border-bottom: 4px solid #D4FF2A;
+	border-bottom: 3px solid #D4FF2A;
 }
 	header .inner {
 		width: 50rem;
@@ -81,6 +81,11 @@ header {
 			display: block;
 			font-weight: normal;
 		}
+
+hr {
+	border: 0;
+	border-bottom: 1px dotted gray;
+}
 
 .main {
 	width: 50rem;
@@ -136,7 +141,7 @@ header {
 		.search-results .b-classification {
 			font-size: .9em;
 			font-weight: bold;
-			color: #666;
+			color: #555;
 			background: url(img/sidebar-tree-symbolic.svg) left center no-repeat;
 			background-size: 16px;
 			padding-left: 22px;
@@ -192,7 +197,28 @@ header {
 		margin-bottom: .5em;
 	}
 	.book-single .b-author {
-		margin: .5em 0 1em;
+		margin: .5em 0 .5em;
+	}
+
+.book-fields {
+	display: inline-block;
+	width: 32rem;
+	max-width: 100%;
+}
+
+.book-fields > li {
+	margin: .4em 1em .4em 0;
+	display: inline-block;
+	width: 14rem;
+	max-width: 45%;
+	vertical-align: top;
+}
+	.book-fields li.b-classification {
+		width: 100%;
+		max-width: 95%;
+		margin: .8em 0 1em;
+		padding-top: .8em;
+		border-top: 1px dotted gray;
 	}
 
 .b-class-tree {
@@ -226,30 +252,14 @@ header {
 	.book-fields .b-class-tree li.b-class-main {
 		margin-top: .2em;
 		font-size: 1.1em;
-		color: black;
-	}
-	.b-class {
 		color: #444;
+		font-weight: bold;
 	}
 
-.book-fields {
-	display: inline-block;
-	width: 32rem;
-	max-width: 100%;
-}
-
-.book-fields > li {
-	margin: .4em 1em .4em 0;
-	display: inline-block;
-	width: 14rem;
-	max-width: 45%;
-	vertical-align: top;
-}
-	.book-fields li.b-classification {
-		width: 100%;
-		max-width: 95%;
-		margin-bottom: 1em;
+	.b-class {
+		color: gray;
 	}
+
 
 .where {
 	/*border-top: 1px solid silver;*/

@@ -21,7 +21,7 @@
 			</a>
 
 			{% block headerSearch %}
-			<form method="get" action="/search" class="search-header">
+			<form method="get" action="{{ global.request.basepath }}/search" class="search-header">
 				<input name="searchBooks" type="text" placeholder="Search the Catalog" value="{{ global.request.get('searchBooks') }}" required>
 				<button type="submit" name="send">🔍 Search</button>
 			</form>

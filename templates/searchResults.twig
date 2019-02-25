@@ -10,7 +10,7 @@
 		{% for result in results %}
 			<tr>
 				<td>
-					<a href="/record/{{ result.record.id }}">
+					<a href="{{ global.request.basePath }}/record/{{ result.record.id }}">
 						<h2 class="b-title">
 							<span class="b-language">
 								{% if result.record.flag %}
@@ -30,7 +30,7 @@
 					</p>
 				</td>
 				<td>
-					<h3 class="b-author"><a href="/author/...">{{ result.record.author|raw }}</a></h3>
+					<h3 class="b-author">{{ result.record.author|raw }}</h3>
 				</td>
 			</tr>
 		{% endfor %}

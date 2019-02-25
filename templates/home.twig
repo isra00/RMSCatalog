@@ -6,9 +6,9 @@
 
 	<section class="main">
 
-		<form method="get" action="/search" class="search-home">
+		<form method="get" action="{{ global.request.basepath }}/search" class="search-home">
 			<label for="searchBooks">Search the Library Catalog:</label>
-			<input name="searchBooks" type="text" placeholder="e.g. Von Balthasar, African culture" required autofocus>
+			<input name="searchBooks" type="text" required autofocus>
 			<button type="submit" name="send">🔍 Search</button>
 		</form>
 
