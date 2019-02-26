@@ -6,7 +6,7 @@
 		
 		<div class="b-language">
 			{% if record.flag %}<img src="{{ global.request.baseUrl }}/img/flags/{{ record.flag }}.png">{% endif %}
-			{{ record.language }}
+			<span>{{ record.language }}</span>
 		</div>
 
 		<h2 class="b-title">{{ record.title }} {% if record.volume %}<span class="b-volume">(Vol. {{ record.volume }})</span>{% endif %}</h2>

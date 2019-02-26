@@ -85,6 +85,7 @@ header {
 hr {
 	border: 0;
 	border-bottom: 1px dotted gray;
+	width: 90%;
 }
 
 .main {
@@ -142,7 +143,7 @@ hr {
 			font-size: .9em;
 			font-weight: bold;
 			color: #555;
-			background: url(img/sidebar-tree-symbolic.svg) left center no-repeat;
+			background: url(img/sidebar-tree-symbolic.svg) left .3em no-repeat;
 			background-size: 16px;
 			padding-left: 22px;
 		}
@@ -169,15 +170,17 @@ hr {
 	.b-volume {
 		color: #444;
 		font-size: .85em;
+		display: inline-block;
 	}
 	.b-author {
+		font-size: .9em;
 		font-style: italic;
-		font-size: 1.1em;
 		margin-top: 0;
 		hyphens: none;
-		background: url(img/author.svg) left top no-repeat;
+		background: url(img/author.svg) left .3em no-repeat;
 		background-size: 20px;
 		padding-left: 30px;
+		color: #333;
 	}
 	
 
@@ -198,6 +201,8 @@ hr {
 	}
 	.book-single .b-author {
 		margin: .5em 0 .5em;
+		font-size: 1.1em;
+		background-position: left .2em;
 	}
 
 .book-fields {
@@ -326,6 +331,7 @@ hr {
 		float: none;
 	}
 
+
 }
 
 
@@ -342,4 +348,16 @@ hr {
 		margin-top: 1em;
 		margin-left: 0;
 	}
+		header form button span {
+			display: none;
+		}
+
+	.book-single .b-language {
+		float: left;
+		margin: .2em .5em 0 0;
+	}
+		.book-single .b-language span {
+			display: none;
+		}
+
 }

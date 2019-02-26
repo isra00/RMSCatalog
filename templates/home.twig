@@ -7,12 +7,10 @@
 	<section class="main">
 
 		<form method="get" action="{{ global.request.basepath }}/search" class="search-home">
-			<label for="searchBooks">Search the Library Catalog:</label>
-			<input name="searchBooks" type="text" required autofocus>
+			<label for="searchBooks">Search by title, subtitle or author:</label>
+			<input id="searchBooks" name="searchBooks" type="text" required autofocus>
 			<button type="submit" name="send">🔍 Search</button>
 		</form>
-
-		<p>It searches in the author, title and subtitle of the books.</p>
 
 		<!--<p>or browse the classification:</p>
 		
