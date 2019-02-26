@@ -51,7 +51,12 @@ class ClassificationReader
 		while (strpos($class, '.'))
 		{
 			$class = substr($class, 0, strrpos($class, '.'));
-			$parents[] = $class;
+
+			//There is one unlucky exception of a class without parent -_-
+			if (isset($this->readClassification()[$class]))
+			{
+				$parents[] = $class;
+			}
 		}
 
 		$parents = array_reverse($parents);
@@ -60,7 +65,7 @@ class ClassificationReader
 
 		foreach ($parents as $parent)
 		{
-			$parentsWithLabels[$parent] = $this->classification[$parent];
+			$parentsWithLabels[$parent] = $this->readClassification()[$parent];
 		}
 
 		return $parentsWithLabels;
