@@ -17,7 +17,7 @@ class SearchEngine
 	protected $searchFields = [
 		'title'		=> 1, 
 		'subtitle'	=> 0.8, 
-		'author'	=> 1,
+		'author'	=> 0.9,
 	];
 
 	public function __construct(DbReader $dbReader)
