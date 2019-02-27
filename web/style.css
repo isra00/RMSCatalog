@@ -246,7 +246,7 @@ header {
 }
 	.book-fields .b-class-tree li {
 		margin: .1em 0;
-		background: url(img/arrow_.svg) left center no-repeat;
+		background: url(img/arrow.svg) left .2em no-repeat;
 		background-size: .6em auto;
 	}
 		.b-class-tree li.level-0 {
@@ -255,19 +255,19 @@ header {
 
 	.b-class-tree li.level-1 {
 		padding-left: 1em;
-		background-position: .2em center;
+		background-position: .2em .3em;
 	}
 	.b-class-tree li.level-2 {
 		padding-left: 2em;
-		background-position: 1.2em center;
+		background-position: 1.2em .3em;
 	}
 	.b-class-tree li.level-3 {
 		padding-left: 3em;
-		background-position: 2.2em center;
+		background-position: 2.2em .3em;
 	}
 	.b-class-tree li.level-4 {
 		padding-left: 4em;
-		background-position: 3.2em center;
+		background-position: 3.2em .3em;
 	}
 
 	.book-fields .b-class-tree li.b-class-main {
