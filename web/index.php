@@ -41,6 +41,12 @@ $app->get('/', function(Request $req) use ($app)
 $app->get('/search', function(Request $req) use ($app)
 {
 	$searchString = trim($req->get('searchBooks'));
+	
+	if (empty($searchString))
+	{
+		return $app->redirect('/');
+	}
+
 	$searchEngine = new \RMSCatalog\SearchEngine($app['dbReader']);
 	$results 	  = $searchEngine->search($searchString);
 
@@ -64,10 +70,23 @@ $app->get('/record/{id}', function(Request $req, int $id) use ($app)
 
 $app->get('/carallo', function() use ($app)
 {
-	$collator = new \Collator('es_ES');
+	/*$collator = new \Collator('es_ES');
 	var_dump($collator->compare('filosofía', 'filosofia'));
 
-	return "";
+	return "";*/
+
+	$reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader("Xlsx");
+	$spreadsheet = $reader->load("../LIBRARY.xlsx");
+
+	$loadedSheetNames = $spreadsheet->getSheetNames();
+
+	$writer = new \PhpOffice\PhpSpreadsheet\Writer\Csv($spreadsheet);
+
+	foreach($loadedSheetNames as $sheetIndex => $loadedSheetName) {
+	    $writer->setSheetIndex($sheetIndex);
+	    $writer->save("../" . $loadedSheetName.'.csv');
+	}
+
 });
 
 

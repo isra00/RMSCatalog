@@ -37,6 +37,25 @@ h5 {
 	margin: 0;
 }
 
+input, button {
+	font-size: 1rem;
+}
+
+button {
+	border-radius: .2em;
+	box-shadow: 1px 1px 2px silver;
+	border: 0;
+	background: #eee;
+	line-height: 100%;
+	padding: .45em .5em;
+}
+
+hr {
+	border: 0;
+	border-bottom: 1px dotted gray;
+	width: 90%;
+}
+
 header {
 	overflow: hidden;
 	margin: 0 0 2em;
@@ -82,12 +101,6 @@ header {
 			font-weight: normal;
 		}
 
-hr {
-	border: 0;
-	border-bottom: 1px dotted gray;
-	width: 90%;
-}
-
 .main {
 	width: 50rem;
 	max-width: 95%;
@@ -113,8 +126,8 @@ hr {
 		font-size: 1.2em;
 	}
 	.search-home button {
-		padding: .4em .5em;
 		vertical-align: top;
+		font-size: 1.05em;
 	}
 
 /******* SEARCH RESULTS ******/
@@ -331,6 +344,13 @@ hr {
 		float: none;
 	}
 
+	.search-home input[type="text"] {
+		max-width: 75%;
+	}
+	.search-home button {
+		max-width: 20%;
+		font-size: .9em;
+	}
 
 }
 
@@ -348,10 +368,15 @@ hr {
 		margin-top: 1em;
 		margin-left: 0;
 	}
-		header form button span {
+		header form button span,
+		.search-home button span {
 			display: none;
 		}
 
+	.search-home button {
+		font-size: .8em;
+	}
+	
 	.book-single .b-language {
 		float: left;
 		margin: .2em .5em 0 0;
