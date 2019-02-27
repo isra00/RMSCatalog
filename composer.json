@@ -7,7 +7,8 @@
 		"twig/twig": "~1.24",
 		"symfony/twig-bridge": "~3.1",
 		"symfony/translation": "~3.1",
-		"doctrine/dbal": "2.5.*"
+		"doctrine/dbal": "2.5.*",
+		"phpoffice/phpspreadsheet": "^1.6"
 	},
 
 	"autoload": {
