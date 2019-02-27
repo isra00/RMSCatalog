@@ -246,25 +246,28 @@ header {
 }
 	.book-fields .b-class-tree li {
 		margin: .1em 0;
+		background: url(img/arrow_.svg) left center no-repeat;
+		background-size: .6em auto;
 	}
-	.b-class-tree li::before {
-		content: "⤷";
-	}
-		.b-class-tree .level-0::before {
-			content: "";
+		.b-class-tree li.level-0 {
+			background: none;
 		}
 
-	.b-class-tree .level-1 {
-		text-indent: 0em;
+	.b-class-tree li.level-1 {
+		padding-left: 1em;
+		background-position: .2em center;
 	}
-	.b-class-tree .level-2 {
-		text-indent: .6em;
+	.b-class-tree li.level-2 {
+		padding-left: 2em;
+		background-position: 1.2em center;
 	}
-	.b-class-tree .level-3 {
-		text-indent: 1.2em;
+	.b-class-tree li.level-3 {
+		padding-left: 3em;
+		background-position: 2.2em center;
 	}
-	.b-class-tree .level-4 {
-		text-indent: 1.8em;
+	.b-class-tree li.level-4 {
+		padding-left: 4em;
+		background-position: 3.2em center;
 	}
 
 	.book-fields .b-class-tree li.b-class-main {
