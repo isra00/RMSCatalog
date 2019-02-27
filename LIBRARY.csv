@@ -1,4 +1,3 @@
-ID,CALL #,CODE,TITLE,SUBTITLE,AUTHOR,PUBLISHED,LOCATION,Volume,Series #,Language,Exemplar,Borrower,date,Checked series#,ISBN,Main entry,Label line1,Label line2
 1,1,T31,LA SOMMA TEOLOGICA,INDICE GENERALE ,S. TOMMASO D'AQUINO,1988,B,A,,ITALIAN,1,,,Y,,,,
 2,1,T31,LA SOMMA TEOLOGICA,INTRODUZIONE GENERALE,S. TOMMASO D'AQUINO,1987,B,B,,ITALIAN,1,,,Y,,,,
 3,1,T31,LA SOMMA TEOLOGICA,"I- ESISTENZA E NATURA DI DIO (I, qq. 1-13)",S. TOMMASO D'AQUINO,1985,B,1,,ITALIAN,1,,,Y,,,,
@@ -1904,7 +1903,7 @@ ID,CALL #,CODE,TITLE,SUBTITLE,AUTHOR,PUBLISHED,LOCATION,Volume,Series #,Language
 1903, ,,Historia de Filosofia,,J.M. Navarro & T. Calvo Martinez,,,,,,,,,,842072985X,,,
 1904,BAI 1995,P,Materiales para pensar Filosofia,Primer curso de Bachillerato LOGSE,Jose Antonio Baigori & al.,1995,,,,SPANISH,1,,,YES,8487482090,Baigorri,BAI,1995
 1905,TOM 2008,P17,Diccionario de Bioetica para estudiantes,,Gloria Maria Tomas Garrido & Elvira Manero Richard,2008,,,,SPANISH,1,,,,9788496804838,TOMAS,TOM,2008
-1906,ZUB 2006,P7.1,Repertorio Bibliografico de Xavier Zubiri,,Rafael Lazcano,2006,,,,SPANISH,1,,,,0967280532,ZUBIRI,ZUB,2006
+1906,ZUB 2006,P7.1,Repertorio Bibliografico de Xavier Zubiri,,Rafael Lazcano,2006,,,,SPANISH,1,,,,967280532,ZUBIRI,ZUB,2006
 1907,ADL 2013,P15,Como provar que Deus Existe,,Mortimer J. Adler,2013,,,,PORTUGUESE,1,,,,9788563160454,ADLER,ADL,2013
 1908,PER 1999/45,P,Per la Filosofia: Filosofia e Insegnamento,,-,1999,,45,,ITALIAN,1,,,,9788870301458,PERLAFILOSOFIA,PER,1999/45
 1909, ,,Manuale di filosofia sistematica: Epistemologia Cosmologia,,Battista Mondin,,,,,,,,,,9788870943801,,,
@@ -1943,7 +1942,7 @@ ID,CALL #,CODE,TITLE,SUBTITLE,AUTHOR,PUBLISHED,LOCATION,Volume,Series #,Language
 1942,SAN 1992,P8,Logic,The basis aspects,Juan Jose Sanguineti,1992,,,,ENGLISH,,,,,9789715540438,Sanguineti,SAN,1992
 1943,PLA 2004,P4,Republic,,Plato,2004,,,,ENGLISH,1,,,,9781593080976,PLATO,PLA,2004
 1944,PLA 2005,P4.1,Essential dialogues of Plato,,Plato,2005,,,,ENGLISH,1,,,,9781593082697,PLATO,PLA,2005
-1945,ZUB 1981,P7.1,"Nature, History, God",,Xavier Zubiri,1981,,,,ENGLISH,1,,,,0819115304,ZUBIRI,ZUB,1981
+1945,ZUB 1981,P7.1,"Nature, History, God",,Xavier Zubiri,1981,,,,ENGLISH,1,,,,819115304,ZUBIRI,ZUB,1981
 1946,TUR 2004,P15,"Faith, Reason and the existence of God",,Denys Turner,2004,,,,ENGLISH,1,,,,9780521602563,TURNER,TUR,2004
 1947, ,,Philosophy of Religion,,John H. Kick,,,,,,,,,,9788129703859,,,
 1948,CHA 2006,P14,Philosophy and Religion,From Plato to Postmodernism,Max Charlesworth,2006,,,,ENGLISH,1,,,,9781851683079,Charlesworth,CHA,2006
@@ -1953,37 +1952,37 @@ ID,CALL #,CODE,TITLE,SUBTITLE,AUTHOR,PUBLISHED,LOCATION,Volume,Series #,Language
 1952,CRO 2006,P17,Value Ethics,,Brian Cronin,2006,,,,ENGLISH,2,,,,9966820124,CRONIN,CRO,2006
 1953,KLI 2008,P15,"Philosophy, Science and God",An Introduction to Theodicy,I. Klinger & C. Rimiru,2008,,,,ENGLISH,1,,,,9789966820105,Klinger,KLI,2008
 1954,LOC 2004,P10,An essay concerning human understanding,,John Locke,2004,,,,ENGLISH,1,,,,9780760760499,LOCKE,LOC,2004
-1955,ARI 2001,P4.1,The basic works of Aristotle,,Aristotle,2001,,,,ENGLISH,1,,,,0375757996,ARISTOTLE,ARI,2001
-1956,PLA 1987,P4,The Republic,,Plato,1987,,,,ENGLISH,1,,,,0140440488,PLATO,PLA,1987
+1955,ARI 2001,P4.1,The basic works of Aristotle,,Aristotle,2001,,,,ENGLISH,1,,,,375757996,ARISTOTLE,ARI,2001
+1956,PLA 1987,P4,The Republic,,Plato,1987,,,,ENGLISH,1,,,,140440488,PLATO,PLA,1987
 1957,HUM 2005,P6,A treatise of human nature,,David Hume,2005,,,,ENGLISH,1,,,,9780760771723,HUME,HUM,2005
 1958,HOB 1981,P18,Leviathan,,Thomas Hobbes,1981,,,,ENGLISH,1,,,,9780140431957,HOBBES,HOB,1981
 1959,ROU 1968,P18,The Social Contract,,Jean-Jacques Rousseau,1968,,,,ENGLISH,1,,,,9780140442014,ROUSSEAU,ROU,1968
-1960,NIE 2003,P6.1,Friedrich Nietzsche,,Lee Spinks,2003,,,,ENGLISH,1,,,,0415263603,Nietzsche,NIE,2003
+1960,NIE 2003,P6.1,Friedrich Nietzsche,,Lee Spinks,2003,,,,ENGLISH,1,,,,415263603,Nietzsche,NIE,2003
 1961,NIE 2005,P6,Thus spoke Zarathustra,,Friedrich Nietzsche,2005,,,,ENGLISH,1,,,,9781593082789,Nietzsche,NIE,2005
 1962,HEG 2004,P6,Philosophy of History,,G. W. F. Hegel,2004,,,,ENGLISH,1,,,,9780760757635,HEGEL,HEG,2004
 1963,PAS 1995,P6.1,Pensees; Les Provinciales,,Blaise Pascal,1995,,,,FRENCH,1,,,,9782877142977,PASCAL,PAS,1995
 1964,MAI 2004,P5,The guide for the perplexed,,Moses Maimonides,2004,,,,ENGLISH,1,,,,9780760757574,Maimonides,MAI,2004
 1965,TIM 2007,P13,The best of Speaking Tree,,The Times of India,2007,,,,ENGLISH,1,,,,9788189906023,TIMES,TIM,2007
 1966,SHA 1987,P13,A critical survey of Indian Philosophy,,Chandradhar Sharma,1987,,,,ENGLISH,1,,,,8120803655,SHARMA,SHA,1987
-1967,GRA 2005,P1,The Heart of things,Applying Philosophy to the 21st Century,A. C. Grayling,2005,,,,ENGLISH,1,,,YES,0753819414,Grayling,GRA,2005
+1967,GRA 2005,P1,The Heart of things,Applying Philosophy to the 21st Century,A. C. Grayling,2005,,,,ENGLISH,1,,,YES,753819414,Grayling,GRA,2005
 1968,ART 1990,P1,Philosophy - An Introduction,,Mariano Artigas,1990,,,,ENGLISH,1,,,YES,9789715541244,Artigas,ART,1990
 1969,MAT 1995,P1,Introduction to Philosophy,,L. Mattei,1995,,,,ENGLISH,2,,,YES,9966820000,Mattei,MAT,1995
 1970,MAT 1995,P1,Introduction to Philosophy,,L. Mattei,1995,,,,ENGLISH,1,,,YES,9966820000,Mattei,MAT,1995
-1971,DAV 2002,P1,"Philosophy: An Introduction through original fiction, discussion and a multi-media CD-ROM",,Thomas D. Davis,2002,,,,ENGLISH,1,,,YES,0072831766,Davis,DAV,2002
+1971,DAV 2002,P1,"Philosophy: An Introduction through original fiction, discussion and a multi-media CD-ROM",,Thomas D. Davis,2002,,,,ENGLISH,1,,,YES,72831766,Davis,DAV,2002
 1972,FOW 2007,P11,The evolution controversy,A survey of competing theories,Thomas B. Fowler & Daniel Kuebler,2007,,,,ENGLISH,1,,,,,Fowler,FOW,2007
-1973,LAN 1957,P,Philosophy in a new key,,Susanne K. Langer,1957,,,,ENGLISH,1,,,,0674665031,LANGER,LAN,1957
+1973,LAN 1957,P,Philosophy in a new key,,Susanne K. Langer,1957,,,,ENGLISH,1,,,,674665031,LANGER,LAN,1957
 1974,OCH 2003,P8,An introduction to symbolic logic,,F. Ochieng'-Odhiambo,2003,,,,ENGLISH,1,,,,996682006X,OCHIENG,OCH,2003
-1975,POP 1986,P,Philosophy made simple,,Richard H. Popkin & Avrum Stroll,1986,,,,ENGLISH,,,,,0434986089,Popkin,POP,1986
-1976, ,,Socrates to Sartre,,Samuel Enoch Stumpf,,,,,,,,,,0070623805,,,
-1977,WAL 1977,P,The Elements of Philosophy,,William A. Wallace,1977,,,,ENGLISH,,,,,0818903457,Wallace,WAL,1977
-1978,SCO 1993,P3,History of Philosophy,,Dion Scott-Kakures & Susan Castagnetto & Hugh Benson & William Taschek & Paul Hurley,1993,,,,ENGLISH,1,,,,0064671429,SCOTT-KAKURES,SCO,1993
+1975,POP 1986,P,Philosophy made simple,,Richard H. Popkin & Avrum Stroll,1986,,,,ENGLISH,,,,,434986089,Popkin,POP,1986
+1976, ,,Socrates to Sartre,,Samuel Enoch Stumpf,,,,,,,,,,70623805,,,
+1977,WAL 1977,P,The Elements of Philosophy,,William A. Wallace,1977,,,,ENGLISH,,,,,818903457,Wallace,WAL,1977
+1978,SCO 1993,P3,History of Philosophy,,Dion Scott-Kakures & Susan Castagnetto & Hugh Benson & William Taschek & Paul Hurley,1993,,,,ENGLISH,1,,,,64671429,SCOTT-KAKURES,SCO,1993
 1979,MIH 2005,P3,Falsafa na Ufunuo wa Maarifa,"Kipindi cha kati, usasa, na mapambano ya ujenzi wa mihimili ya hoja za maadili, dini, sayansi na sheria",Adolf Mihanjo,2005,,,,ENGLISH,1,,,YES,998764516X,MIHANJO,MIH,2005
 1980,MIH 2004,P3,Falsafa na usanifu wa hoja - kutoka Wayunani hadi Watanzania (Waafrica),,Adolf Mihanjo,2004,,,,ENGLISH,1,,,YES,9987645143,MIHANJO,MIH,2004
 1981,MIH 2004,P3,Falsafa na usanifu wa hoja - kutoka Wayunani hadi Watanzania (Waafrica),,Adolf Mihanjo,2004,,,,ENGLISH,2,,,YES,9987645143,MIHANJO,MIH,2004
 1982,BOR 2007,P3,A History of Philosophy for (almost) everyone,,Silvano Borruso,2007,,,,ENGLISH,1,,,YES,996608200x,BORRUSO,BOR,2007
 1983,BOR 2007,P3,A History of Philosophy for (almost) everyone,,Silvano Borruso,2007,,,,ENGLISH,2,,,YES,996608200x,BORRUSO,BOR,2007
 1984,ALV 1990,P9,Metaphysics,,Tomas Alvira & Luis Clavell & Tomas Melendo,1990,,,,ENGLISH,1,,,,9715540309,ALVIRA,ALV,1990
-1985,COP 1962/2/1,P3,A History of Philosophy Volume 2 Part II,,Frederick Copleston,1962,,2/1,,ENGLISH,1,,,,0385032358,Copleston,COP,1962/2/1
+1985,COP 1962/2/1,P3,A History of Philosophy Volume 2 Part II,,Frederick Copleston,1962,,2/1,,ENGLISH,1,,,,385032358,Copleston,COP,1962/2/1
 1986,YAR 1994,P4.2,History of Ancient Philosophy,,Ignatius Yarza,1994,,,,ENGLISH,1,,,,971117216x,YARZA,YAR,1994
 1987,SAR 1996,P5.2,History of Medieval Philosophy,,Joseph Saranyana,1996,,,,ENGLISH,1,,,,9715540058,SARANYANA,SAR,1996
 1988,MON 1998,P5.2,A History of Mediaeval Philosophy,,Battista Mondin,1998,,,,ENGLISH,1,,,,8840120459,MONDIN,MON,1998
@@ -1994,18 +1993,18 @@ ID,CALL #,CODE,TITLE,SUBTITLE,AUTHOR,PUBLISHED,LOCATION,Volume,Series #,Language
 1993,COM 1988,P4.2,History of Ancient Philosophy,,Dario Composta,1988,,,,ENGLISH,2,,,,9788188821129,COMPOSTA,COM,1988
 1994,HIR 1977/1,P3,Historia de la filosofía (edición ampliada),"Tomo 1: Antigüedad, edad media, renacimiento",Johannes Hirschberger,1977,,1,,SPANISH,1,,,,,HIRSCHBERGER,HIR,1977/1
 1995,HIR 1977/2,P3,Historia de la filosofía,"Tomo 2: Edad moderna, edad contemporánea",Johannes Hirschberger,1977,,2,,SPANISH,1,,,,,HIRSCHBERGER,HIR,1977/2
-1996,COP 1993/9,P3,A history of Philosophy Volume IX,"Modern Philosophy: From the French Revolution to Sartre, Camus, and Lévi-Strauss",Frederick Copleston,1993,,9,,ENGLISH,1,,,,0385470460,Copleston,COP,1993/9
-1997,COP 1993/8,P3,A history of Philosophy Volume VIII,"Modern Philosophy: Empiricism, Idealism, and Pragmatism in Britain and America",Frederick Copleston,1993,,8,,ENGLISH,1,,,,0385470452,Copleston,COP,1993/8
-1998,COP 1993/7,P3,A history of Philosophy Volume VII,"Modern Philosophy: From the Post-Kantian Idealists to Marx, Kierkegaard, and Nietzsche",Frederick Copleston,1993,,7,,ENGLISH,1,,,,0385470444,Copleston,COP,1993/7
-1999,COP 1993/6,P3,A history of Philosophy Volume VI,Modern Philosophy: From the French Enlightenment to Kant,Frederick Copleston,1993,,6,,ENGLISH,1,,,,0385470436,Copleston,COP,1993/6
-2000,COP 1993/6,P3,A history of Philosophy Volume VI,Modern Philosophy: From the French Enlightenment to Kant,Frederick Copleston,1993,,6,,ENGLISH,2,,,,0385470436,Copleston,COP,1993/6
-2001,COP 1993/5,P3,A history of Philosophy Volume V,Modern Philosophy: The British Philosophers from Hobbes to Hume,Frederick Copleston,1993,,5,,ENGLISH,1,,,,0385470428,Copleston,COP,1993/5
-2002,COP 1993/5,P3,A history of Philosophy Volume V,Modern Philosophy: The British Philosophers from Hobbes to Hume,Frederick Copleston,1993,,5,,ENGLISH,2,,,,0385470428,Copleston,COP,1993/5
-2003,COP 1993/3,P3,A history of Philosophy Volume III,Late Medieval and Renaissance Philosophy,Frederick Copleston,1993,,3,,ENGLISH,1,,,,0385468458,Copleston,COP,1993/3
+1996,COP 1993/9,P3,A history of Philosophy Volume IX,"Modern Philosophy: From the French Revolution to Sartre, Camus, and Lévi-Strauss",Frederick Copleston,1993,,9,,ENGLISH,1,,,,385470460,Copleston,COP,1993/9
+1997,COP 1993/8,P3,A history of Philosophy Volume VIII,"Modern Philosophy: Empiricism, Idealism, and Pragmatism in Britain and America",Frederick Copleston,1993,,8,,ENGLISH,1,,,,385470452,Copleston,COP,1993/8
+1998,COP 1993/7,P3,A history of Philosophy Volume VII,"Modern Philosophy: From the Post-Kantian Idealists to Marx, Kierkegaard, and Nietzsche",Frederick Copleston,1993,,7,,ENGLISH,1,,,,385470444,Copleston,COP,1993/7
+1999,COP 1993/6,P3,A history of Philosophy Volume VI,Modern Philosophy: From the French Enlightenment to Kant,Frederick Copleston,1993,,6,,ENGLISH,1,,,,385470436,Copleston,COP,1993/6
+2000,COP 1993/6,P3,A history of Philosophy Volume VI,Modern Philosophy: From the French Enlightenment to Kant,Frederick Copleston,1993,,6,,ENGLISH,2,,,,385470436,Copleston,COP,1993/6
+2001,COP 1993/5,P3,A history of Philosophy Volume V,Modern Philosophy: The British Philosophers from Hobbes to Hume,Frederick Copleston,1993,,5,,ENGLISH,1,,,,385470428,Copleston,COP,1993/5
+2002,COP 1993/5,P3,A history of Philosophy Volume V,Modern Philosophy: The British Philosophers from Hobbes to Hume,Frederick Copleston,1993,,5,,ENGLISH,2,,,,385470428,Copleston,COP,1993/5
+2003,COP 1993/3,P3,A history of Philosophy Volume III,Late Medieval and Renaissance Philosophy,Frederick Copleston,1993,,3,,ENGLISH,1,,,,385468458,Copleston,COP,1993/3
 2004,COP 1993/2,P3,A history of Philosophy Volume II,Medieval Philosophy,Frederick Copleston,1993,,2,,ENGLISH,1,,,,038546844x,Copleston,COP,1993/2
 2005,COP ,P3,A history of Philosophy Volumes 1-2-3,,Frederick Copleston,,,,,ENGLISH,,,,,9780385230315,Copleston,COP,
 2006,COP 1985/1-2-3,P3,A history of Philosophy Volumes 1-2-3,,Frederick Copleston,1985,,1-2-3,,ENGLISH,1,,,,9780385230315,Copleston,COP,1985/1-2-3
-2007, ,,Questions that matter,,Ed L. Miller,,,,,,,,,,0070428360,,,
+2007, ,,Questions that matter,,Ed L. Miller,,,,,,,,,,70428360,,,
 2008,PAR 2000,P8,Critical Thinking,,Brooke Noel Moore & Richard Parker,2000,,,,ENGLISH,1,,,,076741067x,PARKER,PAR,2000
 2009,REA 1983/1,P3,Il Pensiero occidentale dalle origini ad oggi 1,,Giovanni Reale & Dario Antiseri,1983,,1,,ITALIAN,1,,,,8835072719,Reale,REA,1983/1
 2010,REA 1983/2,P3,Il Pensiero occidentale dalle origini ad oggi 2,,Giovanni Reale & Dario Antiseri,1983,,2,,ITALIAN,1,,,,8835072727,Reale,REA,1983/2
@@ -2021,7 +2020,7 @@ ID,CALL #,CODE,TITLE,SUBTITLE,AUTHOR,PUBLISHED,LOCATION,Volume,Series #,Language
 2020,NKA 1999,P12,African vitology,,Martin Nkafu Nkemnkia,1999,,,,ENGLISH,1,,,,9966214518,NKAFU,NKA,1999
 2021,POM 2009,P11,Chi è l'uomo,Introduzione all'antropologia filosofica in dialogo con le culture,Kipoy Pombo,2009,,,,ITALIAN,1,,,,9788860813824,POMBO,POM,2009
 2022,AYI 1992,P12,An Introduction to the Study of African Culture,,Eric O. Ayisi,1992,,,,ENGLISH,1,,,,9966466177,AYISI,AYI,1992
-2023,BAS 1971,P12,African civilisations in the new World,,Roger Bastide,1971,,,,ENGLISH,1,,,,061317055,BASTIDE,BAS,1971
+2023,BAS 1971,P12,African civilisations in the new World,,Roger Bastide,1971,,,,ENGLISH,1,,,,61317055,BASTIDE,BAS,1971
 2024,SHO 1998,P12,African culture,An overview,Aylward Shorter,1998,,,,ENGLISH,1,,,,9966214127,SHORTER,SHO,1998
 2025,MAK 2007,P12,An Introduction to African Philosophy,,Maurice M. Makumba,2007,,,,ENGLISH,1,,,,9966082964,MAKUMBA,MAK,2007
 2026,16,T25,MISSIONOLOGIA CONTEMPORANEA,IL CAMMINO EVANGELICO NELLE CHIESE: 1945-2007,GIANNI COLZANI,2010,,,,ITALIAN,1,,,YES,,,,2010
@@ -2075,7 +2074,7 @@ ID,CALL #,CODE,TITLE,SUBTITLE,AUTHOR,PUBLISHED,LOCATION,Volume,Series #,Language
 2074,2,T,DIDACHÈ - LETTERE DI IGNAZIO D'ANTIOCHIA - A DIOGNETO,,AGOSTINO CLERICI,2002,,,,ITALIAN,1,,,YES,,,,2002
 2075,20,T1,THE FORMATION OF CHRISTENDOM,,CHRISTOPHER DAWSON,2008,,,,ENGLISH,1,,,YES,,,,2008
 2076,34,T2,THE SPLENDOR OF THE CHURCH,,HENRI DE LUBAC,1999,,,,ENGLISH,1,,,YES,,,,1999
-2077,KRA 1983,P11,I-man: an outline of Philosophical Anthropology,,Mieczylaw A. Krapiec,1983,,,,ENGLISH,1,,,,0910919011,KRAPIEC,KRA,1983
+2077,KRA 1983,P11,I-man: an outline of Philosophical Anthropology,,Mieczylaw A. Krapiec,1983,,,,ENGLISH,1,,,,910919011,KRAPIEC,KRA,1983
 2078,7,T15,ALI DELL'UMANA LIBERTÀ,LA FEDE E LA RAGIONE,"D. BELLANTONI, P. GIUSTINIANI, V. POSSENTI, A. RUSSO, J. RATZINGER, S. SORRENTINO",2008,,,,ITALIAN,1,,,YES,,,,2008
 2079,9,T20.3,AN ELEMENTARY GREEK GRAMMAR,,"E. E. BRYANT, E. D. C. LAKE",1951,,,,ENGLISH,1,,,YES,,,,1951
 2080,57,T9,UA LA UPENDO,MAISHA YA MTAKATIFU THERESIA WA MTOTO YESU ALIYOAANDIKA YEYE MWENYEWE,FR. JOHN JOSEPH RWECHUNGURA,2000,,1,,SWAHILI,2,,,YES,,,,2000
