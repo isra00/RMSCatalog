@@ -18,6 +18,28 @@ class DbReader
 
 	public function readDb()
 	{
+		if (file_exists($this->app['config']['cacheFile']))
+		{
+			if (!$db = json_decode(file_get_contents($this->app['config']['cacheFile']), true))
+			{
+				throw new \Exception('The cache file does not contain valid JSON');
+			}
+		}
+		else
+		{
+			$db = $this->readDbNoCache();
+
+			file_put_contents(
+				$this->app['config']['cacheFile'], 
+				json_encode($db)
+			);
+		}
+
+		return $db;
+	}
+
+	public function readDbNoCache()
+	{
 		$columns = [
 			"id",
 			"call",
@@ -56,7 +78,7 @@ class DbReader
 
 		}
 
-		return $db;
+		return $db;	
 	}
 
 	public function cookRecord($record)

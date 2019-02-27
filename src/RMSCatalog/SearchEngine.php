@@ -26,8 +26,11 @@ class SearchEngine
 	}
 
 	/**
-	 * Word by word search. Full sentences are scored the most, 
-	 * then full words.
+	 * Word by word search. Full sentences are scored the most, then full words. 
+	 * Accented characters are matched by "flattening" (á => a) both the 
+	 * searched words and the fields contents, and therefore the search results 
+	 * are shown with the flattened characters. It's not a perfect solution, but
+	 * it's been incredibly fast to code it ;-)
 	 */
 	public function search($searchString)
 	{
@@ -44,16 +47,11 @@ class SearchEngine
 
 		foreach ($allRecords as $record)
 		{
-			//$record['locale'] = $this->getLocale($record);
-
 			foreach ($searchFields as $field)
 			{
-				//Prepare fields for search
+				//Each searched word is matched against each word in the fields.
 				$record["$field-words"] = explode(' ', $record[$field]);
 
-				// each full word +3
-				// each partial word +1
-				// The score is reset for each field.
 				$score = 0;
 
 				$wordsMatched = [];
@@ -63,7 +61,6 @@ class SearchEngine
 
 					foreach ($searchWords as $searchWord)
 					{
-
 						if (preg_match("/(.*)$searchWord(.*)/i", $word, $match))
 						{
 							//1 point if word matched (not exact full word)
@@ -109,7 +106,7 @@ class SearchEngine
 				{
 					$record = $this->dbReader->cookRecord($record);
 
-					$found[] = [
+					$results[] = [
 						'score'  => $score,
 						'record' => $record
 					];
@@ -118,10 +115,10 @@ class SearchEngine
 			}
 		}
 
-		$this->removeDuplicates($found);
-		$this->sortResults($found);
+		$this->removeDuplicates($results);
+		$this->sortResults($results);
 		
-		return $found;
+		return $results;
 	}
 
 	protected function highlight(&$originalText, $highlighted)
