@@ -115,19 +115,27 @@ header {
 	font-size: 1.2em;
 	line-height: 180%;
 }
+.search-home .flex-container {
+	width: 100%;
+	display: inline-flex;
+	justify-content: left;
+}
 	.search-home label {
 		display: block;
 	}
 	.search-home input[type="text"] {
 		padding: .1em .2em;
 		/*display: block;*/
-		width: 30rem;
-		max-width: 90%;
+		/*width: 30rem;
+		max-width: 90%;*/
+		width: 75%;
 		font-size: 1.2em;
 	}
 	.search-home button {
 		vertical-align: top;
 		font-size: 1.05em;
+		width: auto;
+		margin-left: .5em;
 	}
 
 /******* SEARCH RESULTS ******/
@@ -148,6 +156,9 @@ header {
 		.search-results td:first-child {
 			padding-right: 5%;
 			width: 75%;
+		}
+		.search-results td a {
+			display: block;
 		}
 		.search-results td p {
 			margin: .5em 0 .2em;
@@ -204,6 +215,7 @@ header {
 		margin: .2em 0;
 		font-size: .9em;
 		font-weight: bold;
+		color: #444;
 	}
 	.book-single .b-title  {
 		font-size: 1.5em;
