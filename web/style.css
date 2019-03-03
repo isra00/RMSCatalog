@@ -340,6 +340,72 @@ header {
 			line-height: 60%;
 		}
 
+
+/********    DB   **********/
+
+.notify {
+	padding: .3em .5em;
+	margin: .5em 0;
+	color: white;
+	border-radius: .3em;
+}
+	.notify.success {
+		background: #52b952;
+	}
+	.notify.error {
+		background: #c00;
+	}
+
+.db-management h2 {
+	margin-bottom: 0;
+}
+.db-management h3 {
+	margin: 1em 0 .5em;
+	color: #444;
+}
+	.db-management h3 small {
+		font-weight: normal;
+	}
+
+.col50 {
+	display: inline-block;
+	vertical-align: top;
+	width: 45%;
+	margin-right: 4%;
+}
+
+.db-management time {
+	font-size: .95em;
+	color: #444;
+	font-style: italic;
+}
+
+.file-details {
+	background: url(img/application-vnd.ms-excel.svg) left .3em no-repeat;
+	background-size: auto 3em;
+	padding-left: 3.5em;
+}
+
+.warning {
+	border: 1px solid #c00;
+	color: #c00;
+	display: block;
+	padding: .1em .2em;
+	border-radius: .2em;
+	margin-bottom: .5em;
+}
+
+.db-management form input[type="file"] {
+	max-width: 100%;
+	font-size: .9em;
+}
+.db-management button {
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #444;
+}
+		
+
 /******** GENERIC **********/
 
 .inline {
@@ -348,6 +414,10 @@ header {
 
 .center {
 	text-align: center;
+}
+
+.small {
+	font-size: .9em;
 }
 
 

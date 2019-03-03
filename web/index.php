@@ -74,21 +74,9 @@ $app->get('/carallo', function() use ($app)
 	var_dump($collator->compare('filosofía', 'filosofia'));
 
 	return "";*/
-
-	$reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader("Xlsx");
-	$spreadsheet = $reader->load("../LIBRARY.xlsx");
-
-	$loadedSheetNames = $spreadsheet->getSheetNames();
-
-	$writer = new \PhpOffice\PhpSpreadsheet\Writer\Csv($spreadsheet);
-
-	/** @todo Omitir primera fila! */
-	foreach($loadedSheetNames as $sheetIndex => $loadedSheetName) {
-	    $writer->setSheetIndex($sheetIndex);
-	    $writer->save("../" . $loadedSheetName . '.csv');
-	}
-
 });
 
+$app->get('/db',  "RMSCatalog\\Controllers\\DbManagement::get");
+$app->post('/db', "RMSCatalog\\Controllers\\DbManagement::post");
 
 $app->run();

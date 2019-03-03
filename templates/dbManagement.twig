@@ -1,0 +1,55 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<section class="main db-management">
+
+		{% if error is defined and error is not empty %}
+		<div class="notify error">
+			<strong>The Database was NOT updated:</strong><br>
+			{{ error }}
+		</div>
+		{% endif %}
+
+		{% if success is defined and success is not empty  %}
+		<div class="notify success">
+			{{ success }}
+		</div>
+		{% endif %}
+
+		<h2>Library Database management</h2>
+
+		<div class="col50">
+			<h3>Current Database file</h3>
+
+			<div class="file-details">
+				<strong>{{ uploadedDb.name }}</strong><br>
+				<time>{{ uploadedDb.mTime|date("r") }}</time><br>
+				{{ (uploadedDb.size / 1000)|round(2) }} kB<br>
+			</div>
+
+			<div class="small">
+				<h3>Cache files <small>(automatically generated)</small></h3>
+				<p>
+					<strong>{{ cacheCatalog.name }}</strong><br>
+					<time>{{ cacheCatalog.mTime|date("r") }}</time><br>
+					{{ (cacheCatalog.size / 1000)|round(2) }} kB<br>
+				</p>
+				<p>
+					<strong>{{ cacheClassification.name }}</strong><br>
+					<time>{{ cacheClassification.mTime|date("r") }}</time><br>
+					{{ (cacheClassification.size / 1000)|round(2) }} kB<br>
+				</p>
+			</div>
+		</div>
+
+		<form class="col50" method="post" action="/db" enctype="multipart/form-data">
+			<h3>Upload new version</h3>
+			<em class="warning">Warning: uploading a new version will delete the old one!</em>
+			<input type="file" name="upload">
+			<p><button type="submit" name="sent">Upload</button></p>
+		</form>
+
+	</section>
+
+{% endblock %}

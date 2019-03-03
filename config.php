@@ -3,9 +3,11 @@
 return [
 
 	'templates_dir'			=> __DIR__ . '/templates',
-	'dbFile' 				=> __DIR__ . '/LIBRARY.csv',
-	'classificationFile' 	=> __DIR__ . '/CLASSIFICATION.csv',
-	'cacheFile' 			=> __DIR__ . '/db.json',
+
+	'databaseFolder'		=> __DIR__ . '/database',
+	'uploadedDb' 			=> __DIR__ . '/database/Catalog.xlsx',
+	'cacheCatalog' 			=> __DIR__ . '/database/cache-catalog.serialize',
+	'cacheClassification' 	=> __DIR__ . '/database/cache-classification.serialize',
 
 	'debug' 				=> false,
 ];

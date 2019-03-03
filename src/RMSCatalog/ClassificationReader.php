@@ -18,6 +18,7 @@ class ClassificationReader
 		$this->app = $app;
 	}
 
+	/** @todo Reducir código duplicado de DbReader::readDb */
 	public function readClassification()
 	{
 		if (!empty($this->classification))
@@ -25,20 +26,21 @@ class ClassificationReader
 			return $this->classification;
 		}
 
-		$lines = file($this->app['config']['classificationFile']);
-
-		$classification = [];
-
-		foreach ($lines as $line)
+		if (file_exists($this->app['config']['cacheClassification']))
 		{
-			$line = str_getcsv($line);
-			$classification[trim($line[0])] = trim($line[1]);
+			if (!$classification = unserialize(file_get_contents($this->app['config']['cacheClassification'])))
+			{
+				throw new \Exception('The classification cache file does not contain valid serialized PHP');
+			}
+		}
+		else
+		{
+			throw new \Exception("There is not cache file for Classification! Please upload the Catalog Excel file again");
 		}
 
-		$this->classification = $classification;
-
-		return $classification;
+		return $this->classification = $classification;
 	}
+
 
 	public function getParents($class)
 	{

@@ -11,6 +11,8 @@ class DbReader
 	 */
 	protected $app;
 
+	protected $dbCatalog;
+
 	public function __construct(Application $app)
 	{
 		$this->app = $app;
@@ -18,68 +20,26 @@ class DbReader
 
 	public function readDb()
 	{
-		if (file_exists($this->app['config']['cacheFile']))
+		if (!empty($this->dbCatalog))
 		{
-			if (!$db = json_decode(file_get_contents($this->app['config']['cacheFile']), true))
+			return $this->dbCatalog;
+		}
+
+		if (file_exists($this->app['config']['cacheCatalog']))
+		{
+			if (!$dbCatalog = unserialize(file_get_contents($this->app['config']['cacheCatalog'])))
 			{
-				throw new \Exception('The cache file does not contain valid JSON');
+				throw new \Exception('The cache file does not contain valid serialized PHP');
 			}
 		}
 		else
 		{
-			$db = $this->readDbNoCache();
-
-			file_put_contents(
-				$this->app['config']['cacheFile'], 
-				json_encode($db)
-			);
+			throw new \Exception("There is not cache file for Classification! Please upload the Catalog Excel file again");
 		}
 
-		return $db;
+		return $this->dbCatalog = $dbCatalog;
 	}
 
-	public function readDbNoCache()
-	{
-		$columns = [
-			"id",
-			"call",
-			"class",
-			"title",
-			"subtitle",
-			"author",
-			"year",
-			"location",
-			"volume",
-			"series",
-			"language",
-			"exemplar",
-			"borrower",
-			"date",
-			"checkedSeries",
-			"isbn",
-			"mainrecord",
-			"labelLine1",
-			"labelLine2",
-		];
-
-		$db = [];
-
-		$lines = file($this->app['config']['dbFile']);
-
-		foreach ($lines as $line)
-		{
-			$line = array_combine($columns, str_getcsv($line));
-			
-			//Catalog problem: book not classified
-			if (!empty($line['class']))
-			{
-				$db[$line['id']] = $line;
-			}
-
-		}
-
-		return $db;	
-	}
 
 	public function cookRecord($record)
 	{
