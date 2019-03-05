@@ -36,7 +36,7 @@ class SearchEngine
 	{
 		$allRecords = $this->dbReader->readDb();
 
-		$found = [];
+		$results = [];
 
 		$searchWords = preg_split(
 			'/(\s|,|\.|\:|\!|\?|\(|\)|\[|\])/', 
@@ -215,6 +215,7 @@ class SearchEngine
 			'Ò' => 'O',
 			'Õ' => 'O',
 			'Ö' => 'O',
+			'Ô' => 'O',
 			'ò' => 'o',
 			'ó' => 'o',
 			'ô' => 'o',
