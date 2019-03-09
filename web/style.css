@@ -146,6 +146,13 @@ header {
 		margin-left: .5em;
 	}
 
+	.home-classification {
+		font-size: 1.3em;
+	}
+		.home-classification .b-class-tree {
+			line-height: 150%;
+		}
+
 /******* SEARCH RESULTS ******/
 
 .search-results {

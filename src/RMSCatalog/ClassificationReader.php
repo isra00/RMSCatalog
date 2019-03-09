@@ -72,5 +72,23 @@ class ClassificationReader
 
 		return $parentsWithLabels;
 	}
+
+	function getHtmlTree($baseUrl)
+	{
+		$classes = $this->readClassification();
+		$codes = array_keys($classes);
+
+		$output = "<ul class='b-class-tree'>";
+		foreach ($codes as $code)
+		{
+			$output .= "<li class='level-" . (count(explode('.', $code)) - 1) . "'>"
+						. "<a title='Find all books in this class' href='$baseUrl/match?class=$code'>"
+						. "<span class='b-class'>$code</span> "
+						. "<span class='b-class-label'>" . $classes[$code] . "</span>"
+						. "</a></li>\n";
+		}
+
+		return $output . "</ul>";
+	}
 }
 			

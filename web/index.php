@@ -35,7 +35,9 @@ $app['classificationReader'] = function() use ($app) {
 
 $app->get('/', function(Request $req) use ($app)
 {
-	return $app['twig']->render('home.twig');
+	return $app['twig']->render('home.twig', [
+		'classificationTree' => $app['classificationReader']->getHtmlTree($req->getBasePath())
+	]);
 });
 
 $app->get('/search', function(Request $req) use ($app)
@@ -44,7 +46,7 @@ $app->get('/search', function(Request $req) use ($app)
 	
 	if (empty($searchString))
 	{
-		return $app->redirect('/');
+		return $app->redirect($req->getBasePath() . '/');
 	}
 
 	$searchEngine = new \RMSCatalog\SearchEngine($app['dbReader']);
