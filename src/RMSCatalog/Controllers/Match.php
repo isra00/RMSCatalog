@@ -12,6 +12,11 @@ class Match
 		$validFields 			= array_keys($allRecords[1]);
 		$validRequestedFields 	= array_intersect(array_keys($requestedFields), $validFields);
 
+		if (empty($validRequestedFields))
+		{
+			throw new \Exception("Please specify matching parameters in the URL");
+		}
+
 		//Match multiple fields with AND combination
 		$results = array_filter($allRecords, function($record) use ($requestedFields, $validRequestedFields) {
 

@@ -111,7 +111,6 @@ class SearchEngine
 						'record' => $record
 					];
 				}
-
 			}
 		}
 
