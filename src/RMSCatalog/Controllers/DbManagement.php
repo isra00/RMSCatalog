@@ -145,7 +145,35 @@ class DbManagement
 			}
 		}
 
-		return $catalog;	
+		return $this->reduceExemplars($catalog);
+	}
+
+	protected function reduceExemplars($allExemplars)
+	{
+		$records = [];
+		foreach ($allExemplars as $exemplar)
+		{
+			$bid = $exemplar['class'] . '-' . $exemplar['call'];
+
+			if (isset($records[$bid]))
+			{
+				$records[$bid]['exemplars']++;
+			}
+			else
+			{
+				$records[$bid] = $exemplar;
+				$records[$bid]['exemplars'] = 1;
+			}
+		}
+
+		//Re-assign array keys as per book ID. Yes, this is somehow inconsistent.
+		$recordsById = [];
+		foreach ($records as $record)
+		{
+			$recordsById[$record['id']] = $record;
+		}
+
+		return $recordsById;
 	}
 
 	protected function readCsvClassification()
