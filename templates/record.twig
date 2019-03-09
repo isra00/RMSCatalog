@@ -50,8 +50,10 @@
 					{% endfor %}
 
 					<li class="b-class-main level-{{ record.classTree|length + 1 }}">
-						<span class="b-class">{{ record.class }}</span>
-						<span class="b-class-label">{{ record.classLabel }}</span>
+						<a href="{{ global.request.baseUrl }}/match?class={{ record.class }}" title="Find all books in this classification">
+							<span class="b-class">{{ record.class }}</span>
+							<span class="b-class-label">{{ record.classLabel }}</span>
+						</a>
 					</li>
 				</ul>
 			</li>

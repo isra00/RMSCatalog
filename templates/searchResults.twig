@@ -4,7 +4,16 @@
 
 	<section class="main">
 
+		{% if matchFields is defined %}
+		<h1>
+			<small>{{ results|length }} books in </small>
+			{% for field, value in matchFields %}
+				{% if loop.index > 1 %}<em>and</em> {% endif %} <em>{{ field }}:</em> {{ value }}<br>
+			{% endfor %}
+		</h1>
+		{% else %}
 		<h1>Found {{ results|length }} results with “{{ searchTerm }}”</h1>
+		{% endif %}
 
 		<table class="search-results">
 		{% for result in results %}
@@ -17,7 +26,7 @@
 								<img src="{{ global.request.basePath }}/img/flags/{{ result.record.flag }}.png">
 								{% endif %}
 							</span>
-							{% if global.debug %}[{{ result.score }}]{% endif %}
+							{% if global.debug and result.score is defined %}[{{ result.score }}]{% endif %}
 							{{ result.record.title|raw }} 
 							{% if result.record.volume %}<span class="b-volume">(Vol. {{ result.record.volume }})</span>{% endif %}
 						</h2>

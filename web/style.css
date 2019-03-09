@@ -33,6 +33,14 @@ ul {
 	padding-left: 0;
 }
 
+h1 {
+	line-height: 140%;
+}
+	h1 small {
+		display: block;
+		font-weight: normal;
+	}
+
 h5 {
 	margin: 0;
 }

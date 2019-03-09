@@ -79,4 +79,7 @@ $app->get('/carallo', function() use ($app)
 $app->get('/db',  "RMSCatalog\\Controllers\\DbManagement::get");
 $app->post('/db', "RMSCatalog\\Controllers\\DbManagement::post");
 
+$app->get('/match', "RMSCatalog\\Controllers\\Match::get");
+
+
 $app->run();

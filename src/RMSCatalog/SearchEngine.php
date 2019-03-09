@@ -30,7 +30,7 @@ class SearchEngine
 	 * Accented characters are matched by "flattening" (á => a) both the 
 	 * searched words and the fields contents, and therefore the search results 
 	 * are shown with the flattened characters. It's not a perfect solution, but
-	 * it's been incredibly fast to code it ;-)
+	 * it's been incredibly fast to code it and it works ;-)
 	 */
 	public function search($searchString)
 	{
