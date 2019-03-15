@@ -146,8 +146,13 @@ header {
 		margin-left: .5em;
 	}
 
-	.home-classification {
+	div.home-classification {
 		font-size: 1.3em;
+		background: #fffcf2;
+		box-shadow: 1px 1px 3px #888;
+		padding: .8em 1em;
+		width: auto;
+		max-width: 100%;
 	}
 		.home-classification .b-class-tree {
 			line-height: 150%;
