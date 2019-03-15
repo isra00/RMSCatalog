@@ -43,7 +43,7 @@
 			</div>
 		</div>
 
-		<form class="col50" method="post" action="/db" enctype="multipart/form-data">
+		<form class="col50" method="post" action="{{ global.request.baseUrl }}/db" enctype="multipart/form-data">
 			<h3>Upload new version</h3>
 			<em class="warning">Warning: uploading a new version will delete the old one!</em>
 			<input type="file" name="upload">
