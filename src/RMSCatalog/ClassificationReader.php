@@ -81,6 +81,20 @@ class ClassificationReader
 		$output = "<ul class='b-class-tree'>";
 		foreach ($codes as $code)
 		{
+			/** Library-specific */
+			if (1 == strlen($code))
+			{
+				if ('T' == $code)
+				{
+					$output .= "<h3>Theology</h3>\n";
+				}
+				else
+				{
+					$output .= "<h3>$code " . $classes[$code] . "</h3>\n";
+					continue;
+				}
+			}
+
 			$output .= "<li class='level-" . (count(explode('.', $code)) - 1) . "'>"
 						. "<a title='Find all books in this class' href='$baseUrl/match?class=$code'>"
 						. "<span class='b-class'>$code</span> "
