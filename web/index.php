@@ -17,6 +17,16 @@ $app->register(new \Silex\Provider\TwigServiceProvider(), array(
 	'twig.path' => $app['config']['templates_dir']
 ));
 
+$app->register(new \Silex\Provider\LocaleServiceProvider());
+$app->register(new \Silex\Provider\TranslationServiceProvider());
+$translations = array();
+foreach ($app['config']['translations'] as $lang=>$file)
+{
+	$translations['messages'][$lang] = include $file;
+}
+$app['translator.domains'] = $translations;
+
+$app['locale'] = $app['config']['locale'];
 
 /*
  * CUSTOM PROVIDERS

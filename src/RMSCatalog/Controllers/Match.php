@@ -45,9 +45,16 @@ class Match
 			$requestedFields['class'] = $requestedFields['class'] . ' ' . $app['classificationReader']->readClassification()[$requestedFields['class']];
 		}
 
+		$translatedRequestedFields = [];
+
+		foreach ($requestedFields as $field=>$value)
+		{
+			$translatedRequestedFields[$app['translator']->trans($field)] = $value;
+		}
+
 		return $app['twig']->render('searchResults.twig', [
 			'results' 		=> $results,
-			'matchFields' 	=> $requestedFields
+			'matchFields' 	=> $translatedRequestedFields
 		]);
 	}
 }

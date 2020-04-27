@@ -7,14 +7,14 @@
 	<section class="main">
 
 		<form method="get" action="{{ global.request.basepath }}/search" class="search-home">
-			<label for="searchBooks">Search by title, subtitle or author:</label>
+			<label for="searchBooks">{% trans %}Search by title, subtitle or author:{% endtrans %}</label>
 			<div class="flex-container">
 				<input id="searchBooks" name="searchBooks" type="text" required autofocus>
-				<button type="submit" name="send">🔍 <span>Search</span></button>
+				<button type="submit" name="send">🔍 <span>{% trans %}Search{% endtrans %}</span></button>
 			</div>
 		</form>
 
-		<p>or browse the classification:</p>
+		<p>{% trans %}or browse the classification:{% endtrans %}</p>
 		
 		<div class="book-fields home-classification">
 			<ul class="b-class-tree">

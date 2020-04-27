@@ -17,27 +17,27 @@
 			{% if record.author %}<h3 class="b-author">{{ record.author }}</h3>{% endif %}
 			<hr>
 			<li class="b-year">
-				<h5>Year of publication</h5>
+				<h5>{% trans %}Year of publication{% endtrans %}</h5>
 				{{ record.year }}
 			</li>
 
 			<li class="b-isbn">
-				<h5>ISBN</h5>
+				<h5>{% trans %}ISBN{% endtrans %}</h5>
 				{{ record.isbn|default('<em>(not recorded)</em>')|raw }}
 			</li>
 
 			<li class="b-call">
-				<h5>Call n.</h5>
+				<h5>{% trans %}Call n.{% endtrans %}</h5>
 				{{ record.call }}
 			</li>
 
 			<li class="b-exemplars">
-				<h5>Exemplars</h5>
+				<h5>{% trans %}Exemplars{% endtrans %}</h5>
 				{{ record.exemplars }}
 			</li>
 
 			<li class="b-classification">
-				<h5>Classification</h5>
+				<h5>{% trans %}Classification{% endtrans %}</h5>
 				<ul class="b-class-tree">
 					<li class="level-0">
 						<span class="b-class-label">{{ record.section }}</span>

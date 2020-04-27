@@ -6,13 +6,13 @@
 
 		{% if matchFields is defined %}
 		<h1>
-			<small>{{ results|length }} books in </small>
+			<small>{{ results|length }} {% trans %}book(s) in{% endtrans %} </small>
 			{% for field, value in matchFields %}
 				{% if loop.index > 1 %}<em>and</em> {% endif %} <em>{{ field }}:</em> {{ value }}<br>
 			{% endfor %}
 		</h1>
 		{% else %}
-		<h1>Found {{ results|length }} results with “{{ searchTerm }}”</h1>
+		<h1>{% trans with {'%results%': results|length, '%searchTerm%': searchTerm} %}Found %results% results with “%searchTerm%”{% endtrans %}</h1>
 		{% endif %}
 
 		<table class="search-results">

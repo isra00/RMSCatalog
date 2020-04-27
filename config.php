@@ -9,6 +9,12 @@ return [
 	'cacheCatalog' 			=> __DIR__ . '/database/cache-catalog.serialize',
 	'cacheClassification' 	=> __DIR__ . '/database/cache-classification.serialize',
 
+	'translations'			=> [
+		'es' => __DIR__ . '/trans/es.php',
+	],
+
+	'locale'				=> 'en',
+
 	'debug' 				=> true,
 
 

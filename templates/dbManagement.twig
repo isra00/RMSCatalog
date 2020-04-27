@@ -6,7 +6,7 @@
 
 		{% if error is defined and error is not empty %}
 		<div class="notify error">
-			<strong>The Database was NOT updated:</strong><br>
+			<strong>{% trans %}The Database was NOT updated:{% endtrans %}</strong><br>
 			{{ error }}
 		</div>
 		{% endif %}
@@ -17,10 +17,10 @@
 		</div>
 		{% endif %}
 
-		<h2>Library Database management</h2>
+		<h2>{% trans %}Library Database management{% endtrans %}</h2>
 
 		<div class="col50">
-			<h3>Current Database file</h3>
+			<h3>{% trans %}Current Database file{% endtrans %}</h3>
 
 			<div class="file-details">
 				<strong>{{ uploadedDb.name }}</strong><br>
@@ -29,7 +29,7 @@
 			</div>
 
 			<div class="small">
-				<h3>Cache files <small>(automatically generated)</small></h3>
+				<h3>{% trans %}Cache files <small>(automatically generated)</small>{% endtrans %}</h3>
 				<p>
 					<strong>{{ cacheCatalog.name }}</strong><br>
 					<time>{{ cacheCatalog.mTime|date("r") }}</time><br>
@@ -44,10 +44,10 @@
 		</div>
 
 		<form class="col50" method="post" action="{{ global.request.baseUrl }}/db" enctype="multipart/form-data">
-			<h3>Upload new version</h3>
-			<em class="warning">Warning: uploading a new version will delete the old one!</em>
+			<h3>{% trans %}Upload new version{% endtrans %}</h3>
+			<em class="warning">{% trans %}Warning: uploading a new version will delete the old one!{% endtrans %}</em>
 			<input type="file" name="upload">
-			<p><button type="submit" name="sent">Upload</button></p>
+			<p><button type="submit" name="sent">{% trans %}Upload{% endtrans %}</button></p>
 		</form>
 
 	</section>

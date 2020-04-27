@@ -86,6 +86,7 @@ class ClassificationReader
 			{
 				if ('T' == $code)
 				{
+					/** @todo To be translated */
 					$output .= "<h3>Theology</h3>\n";
 				}
 				else
