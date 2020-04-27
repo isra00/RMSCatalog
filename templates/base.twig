@@ -15,10 +15,12 @@
 			<img src="{{ global.request.basePath }}/img/SRM-white.svg" alt="RMS Tz" class="logo">
 			<h2><a href="{{ global.request.basePath }}/">RMS Library catalog</a></h2>
 
+			{% if app.config.showLinkELibrary %}
 			<a class="e-library" href="//server.rms.tz/cops">
 				<small>Go to the</small>
 				E-Library
 			</a>
+			{% endif %}
 
 			{% block headerSearch %}
 			<form method="get" action="{{ global.request.basepath }}/search" class="search-header">

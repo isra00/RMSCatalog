@@ -60,40 +60,9 @@
 
 		</ul>
 
-		<div class="where">
-			<h6>Where to find this book</h6>
-			👉 Go to the <b>{{ record.section }}</b> room,<br>
-			👉 search the class <b>{{ record.class }}</b>, <br>
-			👉 then locate this label:<br>
-
-			<div class="center">
-				<div class="label label-{{ record.section|lower }}">
-
-				{% if record.section == 'Philosophy' %}
-
-					<small>Redemptoris<br>Mater<br>Tanzania<br></small>
-
-					<img src="{{ global.request.baseUrl }}/img/SRM.svg" height="32" alt="[logo]"><br>
-
-					{{ record.class }}<br>
-					{{ record.labelLine1 }}<br>
-					{{ record.labelLine2 }}<br>
-
-				{% else %}
-
-					<small>Redemptoris Mater</small><br>
-					<img src="{{ global.request.baseUrl }}/img/SRM.svg" height="32" alt="[logo]"><br>
-					<u>TANZANIA</u><br>
-
-					{{ record.call }}<br>
-					{{ record.class }}/B<br>
-					Ex. {{ record.exemplar }}
-				
-				{% endif %}
-
-				</div>
-			</div>
-		</div>
+		{% if whereToFindTemplate %}
+			{% include 'whereToFind/' ~ whereToFindTemplate %}
+		{% endif %}
 
 	</section>
 

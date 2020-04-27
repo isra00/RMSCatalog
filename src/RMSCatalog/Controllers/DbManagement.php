@@ -105,30 +105,13 @@ class DbManagement
 		}
 	}
 
+
+	/**
+	 * Columns are positional, according to the positions defined in the 
+	 * config file.
+	 */
 	protected function readCsvCatalog()
 	{
-		$columns = [
-			"id",
-			"call",
-			"class",
-			"title",
-			"subtitle",
-			"author",
-			"year",
-			"location",
-			"volume",
-			"series",
-			"language",
-			"exemplar",
-			"borrower",
-			"date",
-			"checkedSeries",
-			"isbn",
-			"mainrecord",
-			"labelLine1",
-			"labelLine2",
-		];
-
 		$catalog = [];
 
 		$lines = file($this->app['config']['databaseFolder'] . '/CATALOG.csv');
@@ -136,7 +119,10 @@ class DbManagement
 
 		foreach ($lines as $line)
 		{
-			$line = array_combine($columns, str_getcsv($line));
+			$line = array_combine(
+				$this->app['config']['dbColumns'], //Defined positionally
+				str_getcsv($line)
+			);
 			
 			//Pre-catalogued books (=only title/author) are discarded
 			if (!empty($line['class']))
@@ -153,6 +139,11 @@ class DbManagement
 		$records = [];
 		foreach ($allExemplars as $exemplar)
 		{
+			if (!isset($exemplar['call']))
+			{
+				$exemplar['call'] = $exemplar['labelLine1'];
+			}
+
 			$bid = $exemplar['class'] . '-' . $exemplar['call'];
 
 			if (isset($records[$bid]))
@@ -181,6 +172,11 @@ class DbManagement
 		$lines = file($this->app['config']['databaseFolder'] . '/CLASSIFICATION.csv');
 
 		$classification = [];
+
+		if ($this->app['config']['classificationFirstRowIsHeading'])
+		{
+			array_shift($lines);
+		}
 
 		foreach ($lines as $line)
 		{

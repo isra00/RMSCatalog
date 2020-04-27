@@ -66,16 +66,10 @@ $app->get('/record/{id}', function(Request $req, int $id) use ($app)
 
 	$record['classTree'] = $app['classificationReader']->getParents($record['class']);
 
-	return $app['twig']->render('record.twig', ['record' => $record]);
-});
-
-
-$app->get('/carallo', function() use ($app)
-{
-	/*$collator = new \Collator('es_ES');
-	var_dump($collator->compare('filosofía', 'filosofia'));
-
-	return "";*/
+	return $app['twig']->render('record.twig', [
+		'record' => $record,
+		'whereToFindTemplate' => $app['config']['whereToFindTemplate']
+	]);
 });
 
 $app->get('/db',  "RMSCatalog\\Controllers\\DbManagement::get");

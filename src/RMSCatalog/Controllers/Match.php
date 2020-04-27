@@ -9,7 +9,7 @@ class Match
 		$searchString 			= trim($req->get('searchBooks'));
 		$allRecords 			= $app['dbReader']->readDb();
 		$requestedFields 		= $req->query->all();
-		$validFields 			= array_keys($allRecords[1]);
+		$validFields 			= array_keys(reset($allRecords));
 		$validRequestedFields 	= array_intersect(array_keys($requestedFields), $validFields);
 
 		if (empty($validRequestedFields))

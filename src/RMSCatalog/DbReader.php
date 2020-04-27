@@ -75,6 +75,7 @@ class DbReader
 			$record['flag'] = isset($flags[$record['language']]) ? $flags[$record['language']] : null;
 		}
 
+		/** Library-specific */
 		$record['section'] = ($record['class'][0] == 'T') ? 'Theology' : 'Philosophy';
 
 		$record['classLabel'] = $this->app['classificationReader']->readClassification()[$record['class']];
