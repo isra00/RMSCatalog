@@ -1,2 +1,5 @@
 vendor
 database/*
+\.sublime-project
+
+\.sublime-project\.sublime-workspace
