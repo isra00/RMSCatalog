@@ -276,6 +276,13 @@ header {
 	line-height: 140%;
 	color: #555;
 }
+	.b-class-tree h3 {
+		text-transform: uppercase;
+	}
+	.b-class-tree h3:first-child {
+		margin-top: 0;
+	}
+
 	.book-fields .b-class-tree li {
 		margin: .1em 0;
 		background: url(img/arrow.svg) left .2em no-repeat;
