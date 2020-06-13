@@ -61,11 +61,17 @@ return [
 	=> 'Clasificación',
 
 	//searchResults.twig
-	'book(s) in'
-	=> 'libro(s) en',
+	'book(s)'
+	=> 'libro(s)',
+
+	'Find all books by this author'
+	=> 'Buscar todos los libros de este autor',
 
 	'class'
 	=> 'clase',
+
+	'author'
+	=> 'autor',
 
 	'Found %results% results with “%searchTerm%”'
 	=> 'Se encontraron %results% resultados con “%searchTerm%”',

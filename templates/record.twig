@@ -18,8 +18,14 @@
 
 		<ul class="book-fields">
 
-			{% if record.author %}<h3 class="b-author">{{ record.author }}</h3>{% endif %}
+			{% if record.author %}
+			<h3 class="b-author">
+				<a title="{% trans %}Find all books by this author{% endtrans %}" href="{{ global.request.basePath }}/match?author={{ record.author|url_encode }}">{{ record.author }}</a>
+			</h3>
+			{% endif %}
+
 			<hr>
+
 			<li class="b-year">
 				<h5>{% trans %}Year of publication{% endtrans %}</h5>
 				{{ record.year }}
