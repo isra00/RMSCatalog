@@ -86,11 +86,6 @@ class DbReader
 			$record['flag'] = isset($flags[strtoupper($record['language'])]) ? $flags[strtoupper($record['language'])] : null;
 		}
 
-		if ($this->app['config']['labelIsCall'] && !empty($record['label']))
-		{
-			$record['call'] = $record['label'];
-		}
-
 		/** Library-specific */
 		$record['section'] = ($record['class'][0] == 'T') ? 'Theology' : 'Philosophy';
 

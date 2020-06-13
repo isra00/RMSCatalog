@@ -2,26 +2,14 @@
 
 return [
 
-	'templates_dir'			=> __DIR__ . '/templates',
-
-	'databaseFolder'		=> __DIR__ . '/database',
-	'uploadedDb' 			=> __DIR__ . '/database/Catalog.xlsx',
-	'cacheCatalog' 			=> __DIR__ . '/database/cache-catalog.serialize',
-	'cacheClassification' 	=> __DIR__ . '/database/cache-classification.serialize',
-
-	'translations'			=> [
-		'es' => __DIR__ . '/trans/es.php',
-	],
-
-	'locale'				=> 'en',
-
-	'debug' 				=> true,
-
-
 	/**************************** INTERFACE CONFIG ****************************/
 
+	'locale'				=> 'it',
+
+	'siteTitle'				=> 'Domus Mamre',
+
 	//Leave blank to hide the "Where to Find" module
-	'whereToFindTemplate'	=> 'saoPaulo.twig',
+	'whereToFindTemplate'	=> 'mamre.twig',
 
 	'showLinkELibrary'		=> false,
 
@@ -29,7 +17,7 @@ return [
 	/************************* DATABASE FORMAT CONFIG *************************/
 
 	//Whether the first row of the CLASSIFICATION sheet contains only headings
-	'classificationFirstRowIsHeading' => true,
+	'classificationFirstRowIsHeading' 	=> true,
 
 	/** 
 	 * Mapping of Excel columns in CATALOG sheet to OPAC fields 
@@ -60,7 +48,7 @@ return [
 		"labelLine2",*/
 
 		//Sao Paulo
-		'id',
+		/*'id',
 		'exemplar',
 		'class',
 		'location',
@@ -73,6 +61,39 @@ return [
 		'volume',
 		'series',
 		'isbn',
-		'labelLine1',
-	]
+		'labelLine1',*/
+
+		//Mamre
+		'id',
+		'exemplar',
+		'class',
+		'title',
+		'subtitle',
+		'author',
+		'language',
+		'year',
+		'volume',
+		'serie',
+		'isbn',
+		'call',
+		'location',
+		'label'
+	],
+
+	/************************** SYSTEM (DON'T TOUCH) **************************/
+
+	'templates_dir'			=> __DIR__ . '/templates',
+
+	'databaseFolder'		=> __DIR__ . '/database',
+	'uploadedDb' 			=> __DIR__ . '/database/Catalog.xlsx',
+	'cacheCatalog' 			=> __DIR__ . '/database/cache-catalog.serialize',
+	'cacheClassification' 	=> __DIR__ . '/database/cache-classification.serialize',
+
+	'translations'			=> [
+		'es' => __DIR__ . '/trans/es.php',
+		'it' => __DIR__ . '/trans/it.php',
+	],
+
+	'debug' 				=> true,
+
 ];
