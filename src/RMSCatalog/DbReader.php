@@ -87,6 +87,7 @@ class DbReader
 		}
 
 		/** Library-specific */
+		/** @deprecated */
 		$record['section'] = ($record['class'][0] == 'T') ? 'Theology' : 'Philosophy';
 
 		$record['classLabel'] = $this->app['classificationReader']->readClassification()[$record['class']];

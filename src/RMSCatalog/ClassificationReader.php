@@ -42,6 +42,10 @@ class ClassificationReader
 	}
 
 
+	/** 
+	 * Classification is expected in the format LN[.N][.N][...] where L is one 
+	 * or more letters (main section) and N numbers, e.g. E4, TS4.1.4
+	 */
 	public function getParents($class)
 	{
 		if (false === array_search($class, array_keys($this->classification)))
@@ -54,11 +58,19 @@ class ClassificationReader
 		{
 			$class = substr($class, 0, strrpos($class, '.'));
 
+			/** Library-specific Tanzania */
 			//There is one unlucky exception of a class without parent -_-
+			//(What is library-specific is only the "if", the rest is necessary)
 			if (isset($this->readClassification()[$class]))
 			{
 				$parents[] = $class;
 			}
+		}
+
+		//Before the first dot: get the section
+		if (preg_match('/([a-z]+)/i', $class, $match))
+		{
+			$parents[] = $match[1];
 		}
 
 		$parents = array_reverse($parents);
@@ -82,16 +94,16 @@ class ClassificationReader
 		foreach ($codes as $code)
 		{
 			/** Library-specific */
-			if (1 == strlen($code))
+			if (preg_match('/^[a-z]+$/i', $code))
 			{
 				if ('T' == $code)
 				{
 					/** @todo To be translated */
-					$output .= "<h3>Theology</h3>\n";
+					/*$output .= "<h3>Theology</h3>\n";
 				}
 				else
 				{
-					$output .= "<h3>$code " . $classes[$code] . "</h3>\n";
+					$output .= "<h3>$code " . $classes[$code] . "</h3>\n";*/
 					continue;
 				}
 			}

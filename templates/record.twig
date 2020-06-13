@@ -43,17 +43,14 @@
 			<li class="b-classification">
 				<h5>{% trans %}Classification{% endtrans %}</h5>
 				<ul class="b-class-tree">
-					<li class="level-0">
-						<span class="b-class-label">{{ record.section }}</span>
-					</li>
 					{% for class, label in record.classTree %}
-					<li class="level-{{ loop.index }}">
+					<li class="level-{{ loop.index0 }}">
 						<span class="b-class">{{ class }}</span>
 						<span class="b-class-label">{{ label }}</span>
 					</li>
 					{% endfor %}
 
-					<li class="b-class-main level-{{ record.classTree|length + 1 }}">
+					<li class="b-class-main level-{{ record.classTree|length }}">
 						<a href="{{ global.request.baseUrl }}/match?class={{ record.class }}" title="Find all books in this classification">
 							<span class="b-class">{{ record.class }}</span>
 							<span class="b-class-label">{{ record.classLabel }}</span>

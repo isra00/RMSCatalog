@@ -238,28 +238,4 @@ class SearchEngine
 			$string
 		);
 	}
-
-	/*public function getLocale($record)
-	{
-		/** @todo Move to config */
-		/*$localeFromLanguage = [
-			'ENGLISH' 		=> null,
-			'SPANISH' 		=> 'es_ES',
-			'ITALIAN' 		=> 'it_IT',
-			'ITALIANO' 		=> 'it_IT',
-			'GERMAN' 		=> 'de_DE',
-			'PORTUGUESE'	=> 'pt_PT',
-			'GREEK' 		=> 'gr_GR', // ???
-			'LATIN' 		=> 'lat',	// ???
-			'SWAHILI' 		=> 'sw_TZ',
-			'ARABIC' 		=> 'ar',
-			'HEBREW' 		=> 'he_IL', // ???
-		];
-
-		// If multiple languages, assign the first matching.
-		if (preg_match('/(' . implode('|', array_keys($localeFromLanguage)) . ')/i', $record['language'], $match))
-		{
-			return $localeFromLanguage[$match[1]];
-		}
-	}*/
 }
