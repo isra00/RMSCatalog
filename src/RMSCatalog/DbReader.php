@@ -56,23 +56,39 @@ class DbReader
 			$record['subtitle'] = null;
 		}
 
+		/** @todo Refactor this */
+
 		$flags = [
 			'ENGLISH' 		=> 'gb',
+			'INGLESE' 		=> 'gb',
 			'SPANISH' 		=> 'es',
+			'SPAGNOLO' 		=> 'es',
 			'ITALIAN' 		=> 'it',
 			'ITALIANO' 		=> 'it',
 			'GERMAN' 		=> 'de',
+			'TEDESCO' 		=> 'de',
 			'PORTUGUESE'	=> 'pt',
+			'PORTOGHESE'	=> 'pt',
 			'GREEK' 		=> 'gr',
+			'GRECO' 		=> 'gr',
 			'LATIN' 		=> 'va',
+			'LATINO' 		=> 'va',
 			'SWAHILI' 		=> 'tz',
 			'ARABIC' 		=> 'sa',
+			'ARABO' 		=> 'sa',
 			'HEBREW' 		=> 'il',
+			'EBRAICO' 		=> 'il',
+			'FRANCESE' 		=> 'fr',
 		];
 
 		if (!empty($record['language']))
 		{
-			$record['flag'] = isset($flags[$record['language']]) ? $flags[$record['language']] : null;
+			$record['flag'] = isset($flags[strtoupper($record['language'])]) ? $flags[strtoupper($record['language'])] : null;
+		}
+
+		if ($this->app['config']['labelIsCall'] && !empty($record['label']))
+		{
+			$record['call'] = $record['label'];
 		}
 
 		/** Library-specific */
