@@ -105,7 +105,6 @@ class DbManagement
 		}
 	}
 
-
 	/**
 	 * Columns are positional, according to the positions defined in the 
 	 * config file.
@@ -114,37 +113,40 @@ class DbManagement
 	{
 		$catalog = [];
 
-		$lines = file($this->app['config']['databaseFolder'] . '/CATALOG.csv');
+		$lines = [];
+		if (($handler = fopen($this->app['config']['databaseFolder'] . '/CATALOG.csv', "r")) !== FALSE) {
+			while (($row = fgetcsv($handler)) !== FALSE) {
+				$lines[] = $row;
+			}
+			fclose($handler);
+		}
+
 		unset($lines[0]); //Remove first row (headers)
 
 		foreach ($lines as $line)
 		{
-			$line = array_combine(
-				$this->app['config']['dbColumns'], //Defined positionally
-				str_getcsv($line)
-			);
-			
-			//Pre-catalogued books (=only title/author) are discarded
-			if (!empty($line['class']))
+			if (count($line) >= count($this->app['config']['dbColumns']))
 			{
-				$catalog[$line['id']] = $line;
+				$line = array_combine(
+					$this->app['config']['dbColumns'],
+					array_slice($line, 0, count($this->app['config']['dbColumns']))
+				);
 			}
+
+			$catalog[$line['id']] = $line;
 		}
+
 
 		return $this->reduceExemplars($catalog);
 	}
 
-	protected function reduceExemplars($allExemplars)
+	protected function reduceExemplars(array $allExemplars)
 	{
 		$records = [];
 		foreach ($allExemplars as $exemplar)
 		{
-			if (!isset($exemplar['call']))
-			{
-				$exemplar['call'] = $exemplar['labelLine1'];
-			}
 
-			$bid = $exemplar['class'] . '-' . $exemplar['call'];
+			$bid = implode('-', [$exemplar['title'], $exemplar['author'], $exemplar['year'], $exemplar['volume']]);
 
 			if (isset($records[$bid]))
 			{
