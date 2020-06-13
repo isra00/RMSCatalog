@@ -215,6 +215,7 @@ header {
 		color: #444;
 		font-size: .85em;
 		display: inline-block;
+		padding-left: .3em;
 	}
 	.b-author {
 		font-size: .9em;
@@ -366,6 +367,12 @@ header {
 			font-family: "Roboto Condensed", serif;
 			line-height: 60%;
 		}
+	.label-mamre {
+		font-family: "Roboto", serif;
+		font-size: 1.1em;
+		font-weight: normal;
+		line-height: 145%;
+	}
 
 
 /********    DB   **********/

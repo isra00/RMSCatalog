@@ -9,7 +9,11 @@
 			<span>{{ record.language }}</span>
 		</div>
 
-		<h2 class="b-title">{{ record.title }} {% if record.volume %}<span class="b-volume">(Vol. {{ record.volume }})</span>{% endif %}</h2>
+		<h2 class="b-title">
+			{{ record.title }} 
+			{% if record.volume %}<span class="b-volume">(Vol. {{ record.volume }})</span>{% endif %}
+		</h2>
+
 		<h4 class="b-subtitle">{{ record.subtitle }}</h4>
 
 		<ul class="book-fields">
