@@ -23,11 +23,11 @@
 					<a href="{{ global.request.basePath }}/record/{{ result.record.id }}">
 						<h2 class="b-title">
 							<span class="b-language">
-								{% if result.record.flag %}
-									{% for flag in result.record.flag %}
+								{% for flag in result.record.flag %}
+									{% if flag %}
 									<img src="{{ global.request.basePath }}/img/flags/{{ flag }}.png">
-									{% endfor %}
-								{% endif %}
+									{% endif %}
+								{% endfor %}
 							</span>
 							{% if global.debug and result.score is defined %}[{{ result.score }}]{% endif %}
 							{{ result.record.title|raw }} 
