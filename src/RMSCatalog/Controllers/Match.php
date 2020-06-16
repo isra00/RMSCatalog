@@ -17,6 +17,14 @@ class Match
 			throw new \Exception("Please specify matching parameters in the URL");
 		}
 
+		foreach ($requestedFields as $reqField)
+		{
+			if (is_array($reqField))
+			{
+				throw new \Exception("Array search values are not supported");
+			}
+		}
+
 		//Match multiple fields with AND combination
 		$results = array_filter($allRecords, function($record) use ($requestedFields, $validRequestedFields) {
 

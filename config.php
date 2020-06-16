@@ -78,7 +78,7 @@ return [
 		'serie',
 		'isbn',
 		'call',
-		//'location',
+		'location',
 		'label'
 	],
 
