@@ -94,7 +94,7 @@ class ClassificationReader
 		foreach ($codes as $code)
 		{
 			/** Library-specific */
-			if (preg_match('/^[a-z]+$/i', $code))
+			/*if (preg_match('/^[a-z]+$/i', $code))
 			{
 				if ('T' == $code)
 				{
@@ -104,11 +104,18 @@ class ClassificationReader
 				else
 				{
 					$output .= "<h3>$code " . $classes[$code] . "</h3>\n";*/
-					continue;
+			/*		continue;
 				}
+			}*/
+
+			$level = count(explode('.', $code));
+
+			if (preg_match('/^[a-z]+$/i', $code))
+			{
+				$level = 0;
 			}
 
-			$output .= "<li class='level-" . (count(explode('.', $code)) - 1) . "'>"
+			$output .= "<li class='level-$level'>"
 						. "<a title='Find all books in this class' href='$baseUrl/match?class=$code'>"
 						. "<span class='b-class'>$code</span> "
 						. "<span class='b-class-label'>" . $classes[$code] . "</span>"
