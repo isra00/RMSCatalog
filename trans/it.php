@@ -38,8 +38,11 @@ return [
 	=> 'Caricare',
 
 	//home.twig
-	'Search by title, subtitle or author:'
-	=> 'Cerca per titolo, sottotitolo o autore:',
+	'Search in our %n% books:'
+	=> 'Cerca nei nostri %n% libri:',
+
+	'Title, subtitle, author or topic'
+	=> 'Titolo, sottotitolo, autore o classificazione',
 
 	'or browse the classification:'
 	=> 'o naviga per classificazione:',

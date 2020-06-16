@@ -38,8 +38,11 @@ return [
 	=> 'Cargar',
 
 	//home.twig
-	'Search by title, subtitle or author:'
-	=> 'Busca por título, subtítulo o autor',
+	'Search in our %n% books:'
+	=> 'Busca en nuestros %n% libros:',
+
+	'Title, subtitle, author or topic'
+	=> 'Título, subtítulo, autor o tema',
 
 	'or browse the classification:'
 	=> 'o navega por la clasificación:',
