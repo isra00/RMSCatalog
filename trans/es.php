@@ -63,6 +63,9 @@ return [
 	'Classification'
 	=> 'Clasificación',
 
+	'<em>(not recorded)</em>'
+	=> '<em>(no registrado)</em>',
+
 	//searchResults.twig
 	'book(s)'
 	=> 'libro(s)',

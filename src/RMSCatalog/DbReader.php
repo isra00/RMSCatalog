@@ -43,14 +43,6 @@ class DbReader
 
 	public function cookRecord($record)
 	{
-		foreach ($record as &$column)
-		{
-			if (!is_array($column))
-			{
-				$column = trim($column);
-			}
-		}
-
 		if (strlen($record['subtitle']) < 3)
 		{
 			$record['subtitle'] = null;

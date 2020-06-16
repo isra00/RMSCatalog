@@ -38,7 +38,7 @@
 
 			<li class="b-isbn">
 				<h5>{% trans %}ISBN{% endtrans %}</h5>
-				{{ record.isbn|default('<em>(not recorded)</em>')|raw }}
+				{{ record.isbn|default('<em>(not recorded)</em>')|trans|raw }}
 			</li>
 
 			<li class="b-call">
