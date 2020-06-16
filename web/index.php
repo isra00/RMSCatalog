@@ -46,6 +46,7 @@ $app['classificationReader'] = function() use ($app) {
 $app->get('/', function(Request $req) use ($app)
 {
 	return $app['twig']->render('home.twig', [
+		'totalBooks'		 => count($app['dbReader']->readDb()),
 		'classificationTree' => $app['classificationReader']->getHtmlTree($req->getBasePath())
 	]);
 });
@@ -59,7 +60,7 @@ $app->get('/search', function(Request $req) use ($app)
 		return $app->redirect($req->getBasePath() . '/');
 	}
 
-	$searchEngine = new \RMSCatalog\SearchEngine($app['dbReader']);
+	$searchEngine = new \RMSCatalog\SearchEngine($app);
 	$results 	  = $searchEngine->search($searchString);
 
 	return $app['twig']->render('searchResults.twig', [
