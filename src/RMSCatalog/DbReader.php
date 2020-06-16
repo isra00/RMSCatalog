@@ -79,11 +79,19 @@ class DbReader
 			'HEBREW' 		=> 'il',
 			'EBRAICO' 		=> 'il',
 			'FRANCESE' 		=> 'fr',
+			'CATALANO' 		=> 'catalonia',
+			'SIRIACO' 		=> 'sy',
+			'RUSSO' 		=> 'ru',
 		];
 
 		if (!empty($record['language']))
 		{
-			$record['flag'] = isset($flags[strtoupper($record['language'])]) ? $flags[strtoupper($record['language'])] : null;
+			$record['flag'] = [];
+
+			foreach ($record['language'] as $lang)
+			{
+				$record['flag'][] = isset($flags[strtoupper($lang)]) ? $flags[strtoupper($lang)] : null;
+			}
 		}
 
 		/** Library-specific */

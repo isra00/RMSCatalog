@@ -133,6 +133,16 @@ class DbManagement
 				);
 			}
 
+			foreach ($this->app['config']['multipleValueFields'] as $field) {
+				
+				$line[$field] = explode('&', $line[$field]);
+				
+				foreach ($line[$field] as &$value)
+				{
+					$value = trim($value);
+				}
+			}
+
 			$catalog[$line['id']] = $line;
 		}
 

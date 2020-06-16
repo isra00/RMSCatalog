@@ -4,9 +4,11 @@
 
 	<section class="main book-single">
 		
-		<div class="b-language">
-			{% if record.flag %}<img src="{{ global.request.baseUrl }}/img/flags/{{ record.flag }}.png">{% endif %}
-			<span>{{ record.language }}</span>
+		<div class="b-languages">
+			{% for i, lang in record.language %}
+				{% if record.flag[i] %}<img src="{{ global.request.baseUrl }}/img/flags/{{ record.flag[i] }}.png">{% endif %}
+				<span class="language">{{ lang }}</span>
+			{% endfor %}
 		</div>
 
 		<h2 class="b-title">
@@ -20,7 +22,10 @@
 
 			{% if record.author %}
 			<h3 class="b-author">
-				<a title="{% trans %}Find all books by this author{% endtrans %}" href="{{ global.request.basePath }}/match?author={{ record.author|url_encode }}">{{ record.author }}</a>
+				{% for author in record.author %}
+				<a title="{% trans %}Find all books by this author{% endtrans %}" href="{{ global.request.basePath }}/match?author={{ author|url_encode }}">{{ author }}</a>
+				{% if not loop.last %} &amp; {% endif %}
+				{% endfor %}
 			</h3>
 			{% endif %}
 

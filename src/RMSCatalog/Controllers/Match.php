@@ -23,7 +23,12 @@ class Match
 			$match = true;
 			foreach ($validRequestedFields as $field)
 			{
-				if ($record[$field] != $requestedFields[$field])
+				if (!is_array($record[$field]))
+				{
+					$record[$field] = [$record[$field]];
+				}
+
+				if (FALSE === array_search($requestedFields[$field], $record[$field]))
 				{
 					$match = false;
 				}

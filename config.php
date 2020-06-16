@@ -19,6 +19,8 @@ return [
 	//Whether the first row of the CLASSIFICATION sheet contains only headings
 	'classificationFirstRowIsHeading' 	=> true,
 
+	'multipleValueFields'				=> ['author', 'language'],
+
 	/** 
 	 * Mapping of Excel columns in CATALOG sheet to OPAC fields 
 	 * Columns in CLASSIFICATION sheet cannot be customized as of now.
@@ -76,7 +78,7 @@ return [
 		'serie',
 		'isbn',
 		'call',
-		'location',
+		//'location',
 		'label'
 	],
 

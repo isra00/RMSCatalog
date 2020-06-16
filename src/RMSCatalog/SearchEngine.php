@@ -7,9 +7,9 @@ use \Silex\Application;
 class SearchEngine
 {
 	/**
-	 * @var DbReader
+	 * @var \Silex\Application
 	 */
-	protected $dbReader;
+	protected $app;
 
 	/**
 	 * Matches in different fields are multiplied by this coefficient.
@@ -20,9 +20,9 @@ class SearchEngine
 		'author'	=> 0.9,
 	];
 
-	public function __construct(DbReader $dbReader)
+	public function __construct(Application $app)
 	{
-		$this->dbReader = $dbReader;
+		$this->app = $app;
 	}
 
 	/**
@@ -34,7 +34,7 @@ class SearchEngine
 	 */
 	public function search($searchString)
 	{
-		$allRecords = $this->dbReader->readDb();
+		$allRecords = $this->app['dbReader']->readDb();
 
 		$results = [];
 
@@ -45,10 +45,20 @@ class SearchEngine
 
 		$searchFields = array_keys($this->searchFields);
 
-		foreach ($allRecords as $record)
+		foreach ($allRecords as &$record)
 		{
+			foreach ($this->app['config']['multipleValueFields'] as $multipleField) {
+				$record[$multipleField] = implode(' & ', $record[$multipleField]);
+			}
+
 			foreach ($searchFields as $field)
 			{
+				//Necessary because a record may be passed through twice or more
+				if (is_array($record[$field]))
+				{
+					$record[$field] = implode(' & ', $record[$field]);
+				}
+
 				//Each searched word is matched against each word in the fields.
 				$record["$field-words"] = explode(' ', $record[$field]);
 
@@ -104,7 +114,19 @@ class SearchEngine
 
 				if ($score)
 				{
-					$record = $this->dbReader->cookRecord($record);
+					foreach ($this->app['config']['multipleValueFields'] as $field) {
+						if (!is_array($record[$field]))
+						{
+							$record[$field] = explode('&', $record[$field]);
+							
+							foreach ($record[$field] as &$scalarValue)
+							{
+								$scalarValue = trim($scalarValue);
+							}
+						}
+					}
+
+					$record = $this->app['dbReader']->cookRecord($record);
 
 					$results[] = [
 						'score'  => $score,

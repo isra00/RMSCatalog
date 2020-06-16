@@ -8,7 +8,7 @@
 		<h1>
 			<small>{{ results|length }}&nbsp;{% trans %}book(s){% endtrans %} </small>
 			{% for field, value in matchFields %}
-				{% if loop.index > 1 %}<em>and</em> {% endif %} 
+				{% if loop.index > 1 %}<em>{% trans %}and{% endtrans %}</em> {% endif %} 
 				<em>{{ field|trans }}:</em> &nbsp; {{ value }}<br>
 			{% endfor %}
 		</h1>
@@ -24,7 +24,9 @@
 						<h2 class="b-title">
 							<span class="b-language">
 								{% if result.record.flag %}
-								<img src="{{ global.request.basePath }}/img/flags/{{ result.record.flag }}.png">
+									{% for flag in result.record.flag %}
+									<img src="{{ global.request.basePath }}/img/flags/{{ flag }}.png">
+									{% endfor %}
 								{% endif %}
 							</span>
 							{% if global.debug and result.score is defined %}[{{ result.score }}]{% endif %}
@@ -40,7 +42,11 @@
 					</p>
 				</td>
 				<td>
-					<h3 class="b-author"><a title="{% trans %}Find all books by this author{% endtrans %}" href="{{ global.request.basePath }}/match?author={{ result.record.author|url_encode }}">{{ result.record.author|replace({'&': "<br>"})|raw }}</a></h3>
+					<h3 class="b-author">
+						{% for author in result.record.author %}
+						<a title="{% trans %}Find all books by this author{% endtrans %}" href="{{ global.request.basePath }}/match?author={{ author|url_encode }}">{{ author|raw }}</a>
+						{% endfor %}
+					</h3>
 				</td>
 			</tr>
 		{% endfor %}

@@ -73,6 +73,9 @@ return [
 	'author'
 	=> 'autore',
 
+	'and'
+	=> 'e',
+
 	'Found %results% results with “%searchTerm%”'
 	=> 'Si sono trovati %results% risultati con “%searchTerm%”',
 
