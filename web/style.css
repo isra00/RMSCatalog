@@ -390,6 +390,58 @@ header {
 		line-height: 145%;
 	}
 
+.extra-data {
+	margin-top: 1em;
+}
+	.extra-data .loading {
+		font-style: .9em;
+		font-style: italic;
+		color: gray;
+	}
+	.extra-data .spinner {
+		vertical-align: middle;
+		padding-right: .5em;
+	}
+	.no-extra-data {
+		font-size: .9em;
+		font-style: italic;
+		color: gray;
+	}
+
+.gbooks {
+	border: 1px dotted silver;
+	border-radius: .5em;
+	padding: 1em;
+	font-size: .9em;
+	overflow: hidden;
+}
+	.gbooks h4 {
+		margin-top: 0;
+	}
+
+	.gbooks figure {
+		float: right;
+		margin: 0 0 1em 5%;
+	}
+		.gbooks figure img {
+			box-shadow: 1px 1px 3px silver;
+		}
+
+	.gbooks .go-to-gbooks {
+		font-weight: bold;
+	}
+
+	.gbooks th {
+		vertical-align: top;
+		text-align: left;
+	}
+
+	/* Sometimes the description has HTML paragraphs */
+	.gbooks td p:first-child {
+		margin-top: 0;
+	}
+
+
 
 /********    DB   **********/
 
@@ -415,6 +467,18 @@ header {
 }
 	.db-management h3 small {
 		font-weight: normal;
+	}
+
+	.db-management .gbooks-warmup .results {
+		overflow: hidden;
+		margin-top: .5em;
+		font-size: .8em;
+		background: #eee;
+		padding: .5em;
+	}
+
+	.db-management .gbooks-warmup #post-results {
+		display: none;
 	}
 
 .col50 {

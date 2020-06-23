@@ -1,0 +1,73 @@
+{% if gbooksData %}
+
+<div class="gbooks">
+	<h4>{% trans %}Automatic book information (might be wrong){% endtrans %}</h4>
+
+	<figure>
+	{% if gbooksData.volumeInfo.imageLinks is defined %}
+		<a target="_blank" href="{{ gbooksData.volumeInfo.previewLink }}">
+			<img src="{{ gbooksData.volumeInfo.imageLinks.thumbnail }}" alt="{% trans %}Book cover{% endtrans %}">
+		</a>
+	{% endif %}
+		<figcaption>
+			<a class="go-to-gbooks" target="_blank" href="{{ gbooksData.volumeInfo.previewLink }}">{% trans %}View on Google Books &rarr;{% endtrans %}</a>
+		</figcaption>
+	</figure>
+
+	<table>
+
+	{% if gbooksData.volumeInfo.pageCount is defined %}
+		<tr>
+			<th>{% trans %}Pages:{% endtrans %}</th>
+			<td>{{ gbooksData.volumeInfo.pageCount }}</td>
+		</tr>
+	{% endif %}
+
+	{% if gbooksData.volumeInfo.dimensions is defined %}
+		<tr>
+			<th>{% trans %}Size:{% endtrans %}</th>
+			<td>{{ gbooksData.volumeInfo.dimensions|join(' × ') }}</td>
+		</tr>
+	{% endif %}
+	
+	{% if gbooksData.volumeInfo.publisher is defined %}
+		<tr>
+			<th>{% trans %}Publisher:{% endtrans %}</th>
+			<td>{{ gbooksData.volumeInfo.publisher }}</td>
+		</tr>
+	{% endif %}
+	
+	{% if gbooksData.volumeInfo.categories is defined %}
+		<tr>
+			<th>{% trans %}Topics:{% endtrans %}</th>
+			<td>{{ gbooksData.volumeInfo.categories|join(', ') }}</td>
+		</tr>
+	{% endif %}
+
+	{% if gbooksData.volumeInfo.industryIdentifiers is defined %}
+		<tr>
+			<th>{% trans %}ISBN:{% endtrans %}</th>
+			<td>
+			{% for id in gbooksData.volumeInfo.industryIdentifiers %}
+				{{ id.identifier }} (<abbr>{{ id.type|replace({'_': ''}) }}</abbr>)
+				{% if not loop.last %},&nbsp;{% endif %}
+			{% endfor %}
+			</td>
+		</tr>
+	{% endif %}
+
+	{% if gbooksData.volumeInfo.description is defined %}
+		<tr>
+			<th>{% trans %}Description:{% endtrans %}</th>
+			<td>{{ gbooksData.volumeInfo.description|raw }}</td>
+		</tr>
+	{% endif %}
+
+	</table>
+</div>
+
+{% else %}
+
+<p class="no-extra-data">{% trans %}No extra data found.{% endtrans %}</p>
+
+{% endif %}

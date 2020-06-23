@@ -50,6 +50,47 @@
 			<p><button type="submit" name="sent">{% trans %}Upload{% endtrans %}</button></p>
 		</form>
 
+		<hr>
+
+		<h3>{% trans %}Pre-load Google Books data{% endtrans %}</h3>
+		<p>{% trans %}Click "Warm-up" for fetching extra bibliographic data for every book in the DB. You will need to this if your server will have no Internet access on a regular basis.{% endtrans %}
+			<br>{% trans %}Warning: this may take A LOT of time, depending on how many books the catalog has.{% endtrans %}</p>
+
+		<div class="gbooks-warmup">
+			<div id="button"><button onclick="warmup()">{% trans %}Warm-up{% endtrans %}</button></div>
+			<div class="results" id="results"></div>
+			<div id="post-results"><img src="{{ global.request.basePath }}/img/loading.svg" alt="{% trans %}Loading...{% endtrans %}" width="20px" height="20px" class="spinner"></div>
+		</div>
+
 	</section>
+
+	<script>
+	function warmup() {
+		document.getElementById("post-results").style.display = "block";
+		document.getElementById("button").style.display = "none";
+		ajaxGBooks(1,  {{ totalRecords }});
+	}
+
+	function ajaxGBooks(id, maxId)
+	{
+		$.ajax({
+			type: "GET",
+			url: "{{ global.request.basePath }}/ajaxExtraData/" + id,
+			success: function(html) {
+
+				document.getElementById("results").innerHTML += "{% trans %}Loaded for book #{% endtrans %}" + id + "<br>";
+				
+				if (id < maxId)
+				{
+					ajaxGBooks(id + 1, maxId)
+				}
+				else
+				{
+					document.getElementById("post-results").innerHTML = "<strong>{% trans %}Finished{% endtrans %}</strong>";
+				}
+			}
+		});
+	}
+	</script>
 
 {% endblock %}

@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>{% if pageTitle is defined %}{{ pageTitle }} | {% endif %}{{ app.config.siteTitle }}</title>
 	<link rel="stylesheet" href="{{ global.request.basepath }}/style.css" type="text/css" />
+	{% if loadJSFramework is defined %}
+	<script src="{{ global.request.basepath }}/zepto-1.2.0.min.js"></script>
+	{% endif %}
 </head>
 
 <body class="{{ bodyClass|default() }}">

@@ -2,80 +2,102 @@
 
 {% block content %}
 
-	<section class="main book-single">
-		
-		<div class="b-languages">
-			{% for i, lang in record.language %}
-				{% if record.flag[i] %}<img src="{{ global.request.baseUrl }}/img/flags/{{ record.flag[i] }}.png">{% endif %}
-				<span class="language">{{ lang }}</span>
+<section class="main book-single">
+	
+	<div class="b-languages">
+		{% for i, lang in record.language %}
+			{% if record.flag[i] %}<img src="{{ global.request.baseUrl }}/img/flags/{{ record.flag[i] }}.png">{% endif %}
+			<span class="language">{{ lang }}</span>
+		{% endfor %}
+	</div>
+
+	<h2 class="b-title">
+		{{ record.title }} 
+		{% if record.volume %}<span class="b-volume">(Vol. {{ record.volume }})</span>{% endif %}
+	</h2>
+
+	<h4 class="b-subtitle">{{ record.subtitle }}</h4>
+
+	<ul class="book-fields">
+
+		{% if record.author %}
+		<h3 class="b-author">
+			{% for author in record.author %}
+			<a title="{% trans %}Find all books by this author{% endtrans %}" href="{{ global.request.basePath }}/match?author={{ author|url_encode }}">{{ author }}</a>
+			{% if not loop.last %} &amp; {% endif %}
 			{% endfor %}
-		</div>
-
-		<h2 class="b-title">
-			{{ record.title }} 
-			{% if record.volume %}<span class="b-volume">(Vol. {{ record.volume }})</span>{% endif %}
-		</h2>
-
-		<h4 class="b-subtitle">{{ record.subtitle }}</h4>
-
-		<ul class="book-fields">
-
-			{% if record.author %}
-			<h3 class="b-author">
-				{% for author in record.author %}
-				<a title="{% trans %}Find all books by this author{% endtrans %}" href="{{ global.request.basePath }}/match?author={{ author|url_encode }}">{{ author }}</a>
-				{% if not loop.last %} &amp; {% endif %}
-				{% endfor %}
-			</h3>
-			{% endif %}
-
-			<hr>
-
-			<li class="b-year">
-				<h5>{% trans %}Year of publication{% endtrans %}</h5>
-				{{ record.year }}
-			</li>
-
-			<li class="b-isbn">
-				<h5>{% trans %}ISBN{% endtrans %}</h5>
-				{{ record.isbn|default('<em>(not recorded)</em>')|trans|raw }}
-			</li>
-
-			<li class="b-call">
-				<h5>{% trans %}Call n.{% endtrans %}</h5>
-				{{ record.call }}
-			</li>
-
-			<li class="b-exemplars">
-				<h5>{% trans %}Exemplars{% endtrans %}</h5>
-				{{ record.exemplars }}
-			</li>
-
-			<li class="b-classification">
-				<h5>{% trans %}Classification{% endtrans %}</h5>
-				<ul class="b-class-tree">
-					{% for class, label in record.classTree %}
-					<li class="level-{{ loop.index0 }}">
-						<span class="b-class">{{ class }}</span>
-						<span class="b-class-label">{{ label }}</span>
-					</li>
-					{% endfor %}
-
-					<li class="b-class-main level-{{ record.classTree|length }}">
-						<a href="{{ global.request.baseUrl }}/match?class={{ record.class }}" title="Find all books in this classification">
-							<span class="b-class">{{ record.class }}</span>
-							<span class="b-class-label">{{ record.classLabel }}</span>
-						</a>
-					</li>
-				</ul>
-			</li>
-
-		</ul>
-
-		{% if whereToFindTemplate %}
-			{% include 'whereToFind/' ~ whereToFindTemplate %}
+		</h3>
 		{% endif %}
 
-	</section>
+		<hr>
+
+		<li class="b-year">
+			<h5>{% trans %}Year of publication{% endtrans %}</h5>
+			{{ record.year }}
+		</li>
+
+		<li class="b-isbn">
+			<h5>{% trans %}ISBN{% endtrans %}</h5>
+			{{ record.isbn|default('<em>(not recorded)</em>')|trans|raw }}
+		</li>
+
+		<li class="b-call">
+			<h5>{% trans %}Call n.{% endtrans %}</h5>
+			{{ record.call }}
+		</li>
+
+		<li class="b-exemplars">
+			<h5>{% trans %}Exemplars{% endtrans %}</h5>
+			{{ record.exemplars }}
+		</li>
+
+		<li class="b-classification">
+			<h5>{% trans %}Classification{% endtrans %}</h5>
+			<ul class="b-class-tree">
+				{% for class, label in record.classTree %}
+				<li class="level-{{ loop.index0 }}">
+					<span class="b-class">{{ class }}</span>
+					<span class="b-class-label">{{ label }}</span>
+				</li>
+				{% endfor %}
+
+				<li class="b-class-main level-{{ record.classTree|length }}">
+					<a href="{{ global.request.baseUrl }}/match?class={{ record.class }}" title="Find all books in this classification">
+						<span class="b-class">{{ record.class }}</span>
+						<span class="b-class-label">{{ record.classLabel }}</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+
+	</ul>
+
+	{% if whereToFindTemplate %}
+		{% include 'whereToFind/' ~ whereToFindTemplate %}
+	{% endif %}
+
+	{% if app.config.fetchDataFromInternet %}
+	<div class="extra-data" id="extra-data">
+		<div class="loading">
+			<img src="{{ global.request.basePath }}/img/loading.svg" alt="Loading..." width="20px" height="20px" class="spinner">
+			{% trans %}Loading extra bibliographic data from Internet...{% endtrans %}
+		</div>
+	</div>
+
+	<script>
+	$(document).ready(function() {
+		$.ajax({
+			type: "GET",
+			url: "{{ global.request.basePath }}/ajaxExtraData/{{ record.id }}",
+			success: function(html) {
+				document.getElementById("extra-data").innerHTML = html;
+			}
+		});
+	});
+	</script>
+
+	{% endif %}
+
+</section>
 
 {% endblock %}

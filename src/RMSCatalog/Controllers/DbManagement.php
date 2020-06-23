@@ -38,6 +38,8 @@ class DbManagement
 				'mTime' => filemtime($app['config']['cacheClassification']),
 				'size'  => filesize($app['config']['cacheClassification']),
 			],
+			'loadJSFramework' 	=> true,
+			'totalRecords'		=> count($app['dbReader']->readDb())
 		]));
 	}
 

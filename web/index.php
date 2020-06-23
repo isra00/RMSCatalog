@@ -78,8 +78,22 @@ $app->get('/record/{id}', function(Request $req, int $id) use ($app)
 	$record['classTree'] = $app['classificationReader']->getParents($record['class']);
 
 	return $app['twig']->render('record.twig', [
-		'record' => $record,
-		'whereToFindTemplate' => $app['config']['whereToFindTemplate']
+		'record' 				=> $record,
+		'whereToFindTemplate' 	=> $app['config']['whereToFindTemplate'],
+		'loadJSFramework'		=> $app['config']['fetchDataFromInternet']
+	]);
+});
+
+$app->get('/ajaxExtraData/{id}', function(Request $req, int $id) use ($app)
+{
+	$record = $app['dbReader']->cookRecord(
+		$app['dbReader']->readDb()[$id]
+	);
+
+	$gBooksDataReader = new \RMSCatalog\GBooksDataReader($app);
+
+	return $app['twig']->render('ajaxExtraData.twig', [
+		'gbooksData'		=> $gBooksDataReader->getBookData($record)
 	]);
 });
 

@@ -8,10 +8,12 @@ return [
 
 	'siteTitle'				=> 'Domus Mamre',
 
-	//Leave blank to hide the "Where to Find" module
+	//Leave blank or null to hide the "Where to Find" module
 	'whereToFindTemplate'	=> 'mamre.twig',
 
 	'showLinkELibrary'		=> false,
+
+	'fetchDataFromInternet'	=> true,
 
 
 	/************************* DATABASE FORMAT CONFIG *************************/
@@ -85,11 +87,11 @@ return [
 	/************************** SYSTEM (DON'T TOUCH) **************************/
 
 	'templates_dir'			=> __DIR__ . '/templates',
-
 	'databaseFolder'		=> __DIR__ . '/database',
 	'uploadedDb' 			=> __DIR__ . '/database/Catalog.xlsx',
 	'cacheCatalog' 			=> __DIR__ . '/database/cache-catalog.serialize',
 	'cacheClassification' 	=> __DIR__ . '/database/cache-classification.serialize',
+	'cacheGBooks'		 	=> __DIR__ . '/database/cache-gbooks.serialize',
 
 	'translations'			=> [
 		'es' => __DIR__ . '/trans/es.php',
