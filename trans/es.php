@@ -97,8 +97,8 @@ return [
 	'Book cover'
 	=> 'Portada',
 
-	'View on Google Books &rarr;'
-	=> 'Ver en Google Books &rarr;',
+	'View on Google Books'
+	=> 'Ver en Google Books',
 
 	'Pages:'
 	=> 'Nº páginas:',

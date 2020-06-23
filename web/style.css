@@ -61,7 +61,6 @@ button {
 hr {
 	border: 0;
 	border-bottom: 1px dotted gray;
-	width: 90%;
 }
 
 header {
@@ -272,8 +271,6 @@ header {
 		width: 100%;
 		max-width: 95%;
 		margin: .8em 0 1em;
-		padding-top: .8em;
-		border-top: 1px dotted gray;
 	}
 	.book-fields li.b-classification .level-0 {
 		font-weight: normal;
@@ -409,9 +406,6 @@ header {
 	}
 
 .gbooks {
-	border: 1px dotted silver;
-	border-radius: .5em;
-	padding: 1em;
 	font-size: .9em;
 	overflow: hidden;
 }
@@ -422,6 +416,7 @@ header {
 	.gbooks figure {
 		float: right;
 		margin: 0 0 1em 5%;
+		text-align: center;
 	}
 		.gbooks figure img {
 			box-shadow: 1px 1px 3px silver;
@@ -434,6 +429,7 @@ header {
 	.gbooks th {
 		vertical-align: top;
 		text-align: left;
+		padding-right: .3em;
 	}
 
 	/* Sometimes the description has HTML paragraphs */

@@ -51,6 +51,8 @@
 			{{ record.exemplars }}
 		</li>
 
+		<hr>
+
 		<li class="b-classification">
 			<h5>{% trans %}Classification{% endtrans %}</h5>
 			<ul class="b-class-tree">
@@ -77,6 +79,7 @@
 	{% endif %}
 
 	{% if app.config.fetchDataFromInternet %}
+	<hr>
 	<div class="extra-data" id="extra-data">
 		<div class="loading">
 			<img src="{{ global.request.basePath }}/img/loading.svg" alt="Loading..." width="20px" height="20px" class="spinner">
