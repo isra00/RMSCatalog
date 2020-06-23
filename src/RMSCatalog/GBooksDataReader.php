@@ -14,7 +14,7 @@ class GBooksDataReader
 	/**
 	 * @var array
 	 */
-	protected $gBooksCache;
+	protected $gBooksCache = [];
 
 	public function __construct(Application $app)
 	{
@@ -33,6 +33,25 @@ class GBooksDataReader
 		{
 			file_put_contents($this->app['config']['cacheGBooks'], serialize([]));
 		}
+	}
+
+	public function getStats()
+	{
+		$foundGBooksData = 0;
+
+		foreach ($this->gBooksCache as $cacheEntry)
+		{
+			if (null !== $cacheEntry)
+			{
+				$foundGBooksData++;
+			}
+		}
+
+		return [
+			'total' 		=> count($this->app['dbReader']->readDb()),
+			'withGBooks'	=> count($this->gBooksCache),
+			'wighGBooksData'=> $foundGBooksData
+		];
 	}
 
 	protected function queryGBooks($query)
@@ -67,13 +86,14 @@ class GBooksDataReader
 				$gbooksResult = $this->queryGBooks($query);
 			} catch (\Exception $e)
 			{
-				$gbooksResult = null;
+				$gbooksResult = false;
 			}
 
 			$this->gBooksCache[$query] = $gbooksResult;
 			file_put_contents($this->app['config']['cacheGBooks'], serialize($this->gBooksCache));
 		}
 
+		//var_dump($gbooksResult);
 		return $gbooksResult;
 	}
 }

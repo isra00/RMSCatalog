@@ -22,6 +22,8 @@ class DbManagement
 	 */
 	public function get(\Silex\Application $app, $twigBinds=[])
 	{
+		$gBooksDataReader = new \RMSCatalog\GBooksDataReader($app);
+
 		return $app['twig']->render('dbManagement.twig', array_merge($twigBinds, [
 			'uploadedDb'  => [
 				'name'  => basename($app['config']['uploadedDb']),
@@ -39,7 +41,8 @@ class DbManagement
 				'size'  => filesize($app['config']['cacheClassification']),
 			],
 			'loadJSFramework' 	=> true,
-			'totalRecords'		=> count($app['dbReader']->readDb())
+			'totalRecords'		=> count($app['dbReader']->readDb()),
+			'gBooksStats'		=> $gBooksDataReader->getStats()
 		]));
 	}
 
