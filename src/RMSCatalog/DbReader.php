@@ -34,7 +34,7 @@ class DbReader
 		}
 		else
 		{
-			throw new \Exception("There is not cache file for Classification! Please upload the Catalog Excel file again");
+			throw new \Exception("There is no cache file for Classification! Please upload the Catalog Excel file again");
 		}
 
 		return $this->dbCatalog = $dbCatalog;
@@ -74,6 +74,7 @@ class DbReader
 			'CATALANO' 		=> 'catalonia',
 			'SIRIACO' 		=> 'sy',
 			'RUSSO' 		=> 'ru',
+			'MACEDONE' 		=> 'mk',
 		];
 
 		if (!empty($record['language']))
