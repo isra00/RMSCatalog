@@ -18,7 +18,7 @@
 
 	<h4 class="b-subtitle">{{ record.subtitle }}</h4>
 
-	<ul class="book-fields">
+	<div class="book-fields">
 
 		{% if record.author %}
 		<h3 class="b-author">
@@ -31,29 +31,34 @@
 
 		<hr>
 
-		<li class="b-year">
-			<h5>{% trans %}Year of publication{% endtrans %}</h5>
-			{{ record.year }}
-		</li>
+		<table class="bibliodata">
 
-		<li class="b-isbn">
-			<h5>{% trans %}ISBN{% endtrans %}</h5>
-			{{ record.isbn|default('<em>(not recorded)</em>')|trans|raw }}
-		</li>
+			<tr>
+				<th>{% trans %}Year of publication:{% endtrans %}</th>
+				<td>{{ record.year }}</td>
+			</tr>
 
-		<li class="b-call">
-			<h5>{% trans %}Call n.{% endtrans %}</h5>
-			{{ record.call }}
-		</li>
+			<tr>
+				<th>{% trans %}ISBN:{% endtrans %}</th>
+				<td>{{ record.isbn|default('<em>(not recorded)</em>')|trans|raw }}</td>
+			</tr>
 
-		<li class="b-exemplars">
-			<h5>{% trans %}Exemplars{% endtrans %}</h5>
-			{{ record.exemplars }}
-		</li>
+			{% if record.seriesIndex %}
+			<tr>
+				<th>{% trans %}N. in the series:{% endtrans %}</th>
+				<td>{{ record.seriesIndex }}</td>
+			</tr>
+			{% endif %}
+
+			<tr>
+				<th>{% trans %}Exemplars:{% endtrans %}</th>
+				<td>{{ record.exemplars }}</td>
+			</tr>
+		</table>
 
 		<hr>
 
-		<li class="b-classification">
+		<div class="b-classification">
 			<h5>{% trans %}Classification{% endtrans %}</h5>
 			<ul class="b-class-tree">
 				{% for class, label in record.classTree %}
@@ -70,9 +75,9 @@
 					</a>
 				</li>
 			</ul>
-		</li>
+		</div>
 
-	</ul>
+	</div>
 
 	{% if whereToFindTemplate %}
 		{% include 'whereToFind/' ~ whereToFindTemplate %}

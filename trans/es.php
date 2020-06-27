@@ -15,6 +15,9 @@ return [
 	'Search the Catalog'
 	=> 'Libro, autor o categoría',
 
+	'At least 3 letters or numbers'
+	=> '3 o más letras',
+
 	//dbManagement.twig
 	'The Database was NOT updated:'
 	=> 'La Base de Datos NO ha sido actualizada:',
@@ -118,7 +121,7 @@ return [
 	'Description:'
 	=> 'Descripción:',
 
-	'No data found.'
+	'No extra data found.'
 	=> 'No se encontró información en Internet',
 
 	//searchResults.twig

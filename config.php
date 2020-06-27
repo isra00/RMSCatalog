@@ -32,7 +32,7 @@ return [
 
 		//Tanzania
 		/*"id",
-		"call",
+		"order",
 		"class",
 		"title",
 		"subtitle",
@@ -40,7 +40,7 @@ return [
 		"year",
 		"location",
 		"volume",
-		"series",
+		"seriesIndex",
 		"language",
 		"exemplar",
 		"borrower",
@@ -63,7 +63,7 @@ return [
 		'year',
 		'mainrecord',
 		'volume',
-		'series',
+		'seriesIndex',
 		'isbn',
 		'labelLine1',*/
 
@@ -77,9 +77,9 @@ return [
 		'language',
 		'year',
 		'volume',
-		'serie',
+		'seriesIndex',
 		'isbn',
-		'call',
+		'order',
 		'location',
 		'label'
 	],

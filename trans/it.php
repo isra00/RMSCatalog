@@ -15,6 +15,9 @@ return [
 	'Search the Catalog'
 	=> 'Libro, autore o categoria',
 
+	'At least 3 letters or numbers'
+	=> '3 o più caratteri',
+
 	//dbManagement.twig
 	'The Database was NOT updated:'
 	=> 'Il Database non è stato aggiornato:',
@@ -48,23 +51,56 @@ return [
 	=> 'o naviga per classificazione:',
 
 	//record.twig
-	'Year of publication'
-	=> 'Anno di pubblicazione',
+	'Year of publication:'
+	=> 'Anno di pubblicazione:',
 
-	'ISBN'
-	=> 'ISBN',
+	'ISBN:'
+	=> 'ISBN:',
 
-	'Call n.'
-	=> 'Call n.',
-
-	'Exemplars'
-	=> 'Esemplari',
+	'Exemplars:'
+	=> 'Esemplari:',
 
 	'Classification'
 	=> 'Classificazione',
 
 	'<em>(not recorded)</em>'
 	=> '<em>(non registrato)</em>',
+
+	/** traducir */
+	'Loading extra bibliographic data from Internet...'
+	=> 'Loading extra bibliographic data from Internet...',
+
+	//ajaxExtraData.twig
+	/** traducir */
+	'Automatic book information (might be wrong)'
+	=> 'Informazioni bibliografiche automatiche (potrebbero essere errate)',
+
+	'Book cover'
+	=> 'Copertina',
+
+	'View on Google Books'
+	=> 'Ver en Google Books',
+
+	'Pages:'
+	=> 'Pagine:',
+
+	'Size:'
+	=> 'Dimensiones:',
+
+	'Publisher:'
+	=> 'Editrice:',
+
+	'Topics:'
+	=> 'Soggetti:',
+
+	'ISBN:'
+	=> 'ISBN:',
+
+	'Description:'
+	=> 'Descrizione:',
+
+	'No extra data found.'
+	=> 'Non sono state trovate informazioni su Internet',
 
 	//searchResults.twig
 	'book(s)'
