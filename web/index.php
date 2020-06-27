@@ -4,6 +4,8 @@ require '../vendor/autoload.php';
 
 use \Symfony\Component\HttpFoundation\Request;
 
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE);
+
 $app = new \Silex\Application;
 
 $app['config'] = require __DIR__ . '/../config.php';
