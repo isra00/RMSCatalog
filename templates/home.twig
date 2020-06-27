@@ -9,7 +9,7 @@
 		<form method="get" action="{{ global.request.basepath }}/search" class="search-home">
 			<label for="searchBooks">{% trans with {'%n%': totalBooks} %}Search in our %n% books:{% endtrans %} </label>
 			<div class="flex-container">
-				<input id="searchBooks" name="searchBooks" type="text" placeholder="{% trans %}Title, subtitle, author or topic{% endtrans %}" required autofocus>
+				<input id="searchBooks" name="searchBooks" type="text" placeholder="{% trans %}Title, subtitle, author or topic{% endtrans %}" pattern=".{3,}" title="{% trans %}At least 3 letters or numbers{% endtrans %}" required autofocus>
 				<button type="submit" name="send">🔍 <span>{% trans %}Search{% endtrans %}</span></button>
 			</div>
 		</form>

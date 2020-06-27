@@ -27,7 +27,7 @@
 
 			{% block headerSearch %}
 			<form method="get" action="{{ global.request.basepath }}/search" class="search-header">
-				<input name="searchBooks" type="text" placeholder="{% trans %}Search the Catalog{% endtrans %}" value="{{ global.request.get('searchBooks') }}" required>
+				<input name="searchBooks" type="text" placeholder="{% trans %}Search the Catalog{% endtrans %}" value="{{ global.request.get('searchBooks') }}" pattern=".{3,}" title="{% trans %}At least 3 letters or numbers{% endtrans %}" required>
 				<button type="submit" name="send">🔍 <span>{% trans %}Search{% endtrans %}</span></button>
 			</form>
 			{% endblock %}
