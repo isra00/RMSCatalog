@@ -53,27 +53,39 @@ class DbReader
 		$flags = [
 			'ENGLISH' 		=> 'gb',
 			'INGLESE' 		=> 'gb',
+			'INGLÉS' 		=> 'gb',
 			'SPANISH' 		=> 'es',
+			'ESPAÑOL' 		=> 'es',
 			'SPAGNOLO' 		=> 'es',
 			'ITALIAN' 		=> 'it',
 			'ITALIANO' 		=> 'it',
 			'GERMAN' 		=> 'de',
 			'TEDESCO' 		=> 'de',
+			'ALEMÁN' 		=> 'de',
 			'PORTUGUESE'	=> 'pt',
 			'PORTOGHESE'	=> 'pt',
+			'PORTUGUÉS'		=> 'pt',
 			'GREEK' 		=> 'gr',
 			'GRECO' 		=> 'gr',
+			'GRIEGO' 		=> 'gr',
+			'LATÍN' 		=> 'va',
 			'LATIN' 		=> 'va',
 			'LATINO' 		=> 'va',
 			'SWAHILI' 		=> 'tz',
 			'ARABIC' 		=> 'sa',
+			'ÁRABE' 		=> 'sa',
 			'ARABO' 		=> 'sa',
 			'HEBREW' 		=> 'il',
+			'HEBREO' 		=> 'il',
 			'EBRAICO' 		=> 'il',
 			'FRANCESE' 		=> 'fr',
+			'FRANCÉS' 		=> 'fr',
 			'CATALANO' 		=> 'catalonia',
+			'CATALÁN' 		=> 'catalonia',
 			'SIRIACO' 		=> 'sy',
+			'SIRÍACO' 		=> 'sy',
 			'RUSSO' 		=> 'ru',
+			'RUSO' 			=> 'ru',
 			'MACEDONE' 		=> 'mk',
 		];
 
@@ -83,7 +95,7 @@ class DbReader
 
 			foreach ($record['language'] as $lang)
 			{
-				$record['flag'][] = isset($flags[strtoupper($lang)]) ? $flags[strtoupper($lang)] : null;
+				$record['flag'][] = isset($flags[mb_strtoupper($lang)]) ? $flags[mb_strtoupper($lang)] : null;
 			}
 		}
 

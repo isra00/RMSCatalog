@@ -72,17 +72,17 @@ return [
 	=> 'o navega por la clasificación:',
 
 	//record.twig
-	'Year of publication'
-	=> 'Año de publicación',
+	'Year of publication:'
+	=> 'Año de publicación:',
 
-	'ISBN'
-	=> 'ISBN',
+	'ISBN:'
+	=> 'ISBN:',
 
-	'Call n.'
-	=> 'Call n.',
+	'Call n.:'
+	=> 'Call n.:',
 
-	'Exemplars'
-	=> 'Ejemplares',
+	'Exemplars:'
+	=> 'Ejemplares:',
 
 	'Classification'
 	=> 'Clasificación',
