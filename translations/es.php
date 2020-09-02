@@ -61,6 +61,16 @@ return [
 	'Finished'
 	=> 'Terminado',
 
+	'RMS Catalog is a non profit-motivated, free and open source software.'
+	=> 'RMS Catalog es software libre, abierto y sin ánimo de lucro.',
+
+	'E-mail the author'
+	=> 'Escribe al autor',
+
+	'Source code on GitHub'
+	=> 'Código fuente en GitHub',
+
+
 	//home.twig
 	'Search in our %n% books:'
 	=> 'Busca en nuestros %n% libros:',

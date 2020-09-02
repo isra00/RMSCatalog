@@ -1,9 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ app.config.locale }}">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
 	<title>{% if pageTitle is defined %}{{ pageTitle }} | {% endif %}{{ app.config.siteTitle }}</title>
 	<link rel="stylesheet" href="{{ global.request.basepath }}/style.css" type="text/css" />
 	{% if loadJSFramework is defined %}

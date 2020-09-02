@@ -451,6 +451,10 @@ header {
 		font-weight: normal;
 	}
 
+	.db-management .gbooks-warmup {
+		margin-bottom: 2em;
+	}
+
 	.db-management .gbooks-warmup .results {
 		overflow: hidden;
 		margin-top: .5em;
@@ -501,7 +505,18 @@ header {
 	font-weight: bold;
 	color: #444;
 }
-		
+
+
+.about {
+	font-style: italic;
+	margin-top: 1em;
+}
+	.about img {
+		float: left; 
+		width: 4rem; 
+		height: 4rem; 
+		margin: 0 1.5rem 1.5rem 0;
+	}
 
 /******** GENERIC **********/
 
