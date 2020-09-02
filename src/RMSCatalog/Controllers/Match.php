@@ -25,7 +25,7 @@ class Match
 			}
 		}
 
-		//Match multiple fields with AND combination
+		//Match multiple fields with an AND (conjunction) combination
 		$results = array_filter($allRecords, function($record) use ($requestedFields, $validRequestedFields) {
 
 			$match = true;
@@ -52,9 +52,13 @@ class Match
 		}
 
 		//Prepare results page title
-		/** @todo Validate requested classes. If it does not exist, throw error */
 		if (false !== array_search('class', array_keys($requestedFields)))
 		{
+			if (empty($app['classificationReader']->readClassification()[$requestedFields['class']]))
+			{
+				$app->abort(404, 'Requested classification ' . $requestedFields['class'] . ' does not exist');
+			}
+
 			$requestedFields['class'] = $requestedFields['class'] . ' ' . $app['classificationReader']->readClassification()[$requestedFields['class']];
 		}
 
