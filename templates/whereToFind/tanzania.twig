@@ -1,13 +1,15 @@
+{% set section = (record.class|slice(0,1) == 'T') ? 'Theology' : 'Philosophy' %}
+
 		<div class="where">
 			<h6>Where to find this book</h6>
-			👉 Go to the <b>{{ record.section }}</b> room,<br>
+			👉 Go to the <b>{{ section }}</b> room,<br>
 			👉 search the class <b>{{ record.class }}</b>, <br>
 			👉 then locate this label:<br>
 
 			<div class="center">
-				<div class="label label-{{ record.section|lower }}">
+				<div class="label label-{{ section|lower }}">
 
-				{% if record.section == 'Philosophy' %}
+				{% if section == 'Philosophy' %}
 
 					<small>Redemptoris<br>Mater<br>Tanzania<br></small>
 
