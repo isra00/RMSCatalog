@@ -25,19 +25,29 @@ class DbReader
 			return $this->dbCatalog;
 		}
 
-		if (file_exists($this->app['config']['cacheCatalog']))
+		$this->dbCatalog = $this->readCacheFile(
+			$this->app['config']['cacheCatalog'], 
+			'Catalog'
+		);
+
+		return $this->dbCatalog;
+	}
+
+	public function readCacheFile($file, $cacheNameForErrorMessage)
+	{
+		if (file_exists($file))
 		{
-			if (!$dbCatalog = unserialize(file_get_contents($this->app['config']['cacheCatalog'])))
+			if (!$result = unserialize(file_get_contents($file)))
 			{
 				throw new \Exception('The cache file does not contain valid serialized PHP');
 			}
+
+			return $result;
 		}
 		else
 		{
-			throw new \Exception("There is no cache file for Classification! Please upload the Catalog Excel file again");
+			throw new \Exception("There is no cache file for $cacheNameForErrorMessage! Please upload the Catalog Excel file again");
 		}
-
-		return $this->dbCatalog = $dbCatalog;
 	}
 
 
