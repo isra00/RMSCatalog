@@ -15,8 +15,8 @@ RMS Catalog does not implement circulation management (loans, patrons, fines...)
 1. Clone the repository and point your web server's document root to the `web` directory.
 2. Run `composer install`
 3. Rename `config-dist.php` into `config.php` and customize the Excel database columns according to the columns of your Excel catalog, as well as other settings.
-4. You may customize the "where to find" template or create your own in templates/your-template.twig, and declare it in `config.php`.
-4. Browse to /db and upload your library catalog in Excel format. 
+4. You may customize the "where to find" template or create your own in `templates/your-template.twig`, and declare it in `config.php`.
+4. Browse http://your-installation/db and upload your library catalog in Excel format. You may re-upload it any time you update your catalog.
 5. Have fun!
 
 # Usage of the Excel catalog
