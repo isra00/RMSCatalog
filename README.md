@@ -1,6 +1,6 @@
 # How it works
 
-RMS Catalog is a simple OPAC (On-Line Public Access Catalog) interface for a *library catalog made with Microsoft Excel*. It is *not* an Integrated Library System (ILS) where you can manage your catalog. Instead, you make your catalog on an Excel spreadsheet and upload it to SRM Catalog to have a nice web interface for browsing the catalog from your local network or Internet. In brief, the librarian uses Excel for managing the catalog, and your library users (patrons) use RMS Catalog to search books in the catalog.
+RMS Catalog is a simple OPAC (On-Line Public Access Catalog) interface for a **library catalog made with Microsoft Excel**. It is **not** an Integrated Library System (ILS) where you can manage your catalog. Instead, you make your catalog on an Excel spreadsheet and upload it to SRM Catalog to have a nice web interface for browsing the catalog from your local network or Internet. In brief, the librarian uses Excel for managing the catalog, and your library users (patrons) use RMS Catalog to search books in the catalog.
 
 The Excel spreadsheet must be formatted according to a few rules specified below, in order to be parsed by RMS Catalog. The best thing is getting our [skeleton Excel catalog](https://github.com/isra00/RMSCatalog/blob/master/Skeleton%20catalog.xlsx) and start working with it.
 
