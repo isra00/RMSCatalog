@@ -59,8 +59,9 @@ class ClassificationReader
 			}
 		}
 
-		//Before the first dot: get the section
-		if (preg_match('/([a-z]+)/i', $class, $match))
+		//Before the first dot: get the first-level class (letters), unless the
+		//book is classified in the first-level class
+		if (preg_match('/([a-z]+)\d+/i', $class, $match))
 		{
 			$parents[] = $match[1];
 		}
