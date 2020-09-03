@@ -44,7 +44,7 @@
 				<td>
 					<h3 class="b-author">
 						{% for author in result.record.author %}
-						<a title="{% trans %}Find all books by this author{% endtrans %}" href="{{ global.request.basePath }}/match?author={{ author|url_encode }}">{{ author|raw }}</a>
+						<a title="{% trans %}Find all books by this author{% endtrans %}" href="{{ global.request.basePath }}/match?author={{ author|replace({'<em>': '', '</em>': ''})|url_encode }}">{{ author|raw }}</a>
 						{% endfor %}
 					</h3>
 				</td>
