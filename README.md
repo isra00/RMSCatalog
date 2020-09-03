@@ -22,5 +22,5 @@ RMS Catalog does not implement circulation management (loans, patrons, fines...)
  - Catalog your books on Excel, using our [skeleton Excel file](https://github.com/isra00/RMSCatalog/blob/master/Skeleton%20catalog.xlsx).
  - The Excel file must have to sheets: CATALOG and CLASSIFICATION. 
  - The CATALOG sheet's columns may be customized, as long as you declare them in `config.php`. But bear in mind that new columns you add will not be shown on the record page automatically, nor searched on by the OPAC's search feature.
- - The CLASSIFICATION sheet must keep the columns "Code" and "Label" in the first and second place, respectively. The classes codes must be formatted according to this scheme: [LETTERS][NUMBERS].[NUMBERS].NUMBERS, etc. for example: `A`, `A1`, `A1.1`, `A1.1.1`, etc.
+ - The CLASSIFICATION sheet must keep the columns "Code" and "Label" in the first and second place, respectively. The classes codes must be formatted according to this scheme: [LETTERS][NUMBERS].[NUMBERS].[NUMBERS], etc. for example: `A`, `A1`, `A1.1`, `A1.1.1`, etc.
  - Our skeleton Excel file generates spine labels for printing (on the LABEL column), and has basic duplicate detection on titles and classification codes, as well as some validation rules to help you avoid cataloguing mistakes.
