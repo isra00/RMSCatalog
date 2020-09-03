@@ -194,8 +194,9 @@ header {
 		margin-bottom: .2em;
 	}
 
-	.b-title {
-		font-size: 1.2em;
+	.search-results .b-title {
+		font-size: 1.1em;
+		margin-bottom: 0.3em;
 	}
 	.b-subtitle {
 		font-size: .9em;
