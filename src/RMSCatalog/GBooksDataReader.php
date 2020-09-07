@@ -41,7 +41,7 @@ class GBooksDataReader
 
 		foreach ($this->gBooksCache as $cacheEntry)
 		{
-			if (null !== $cacheEntry)
+			if (!empty($cacheEntry))
 			{
 				$foundGBooksData++;
 			}
