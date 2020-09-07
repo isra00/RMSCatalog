@@ -2,6 +2,7 @@
 
 namespace RMSCatalog\Controllers;
 
+use \Silex\Application;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class DbManagement
@@ -20,33 +21,78 @@ class DbManagement
 	 * @param  array				$twigBinds	Additional variables to bind in the Twig view
 	 * @return string				The rendered view
 	 */
-	public function get(\Silex\Application $app, $twigBinds=[])
+	public function get(Application $app, $twigBinds=[])
 	{
+		$this->app = $app;
+
 		$gBooksDataReader = new \RMSCatalog\GBooksDataReader($app);
 
+		$this->checkFiles($app, $twigBinds);
+
+		//If Excel file does not exist but caches do, notify and do nothing else
+		if (empty($twigBinds['uploadedDb']['size']) && $twigBinds['cacheCatalog']['size'] && $twigBinds['cacheClassification']['size'])
+		{
+			$notification = 'The Excel database file has not been found, but the website can still work properly.';
+		}
+
+		//If Excel file exists but any of the caches do not, re-generate it
+		if ($twigBinds['uploadedDb']['size'])
+		{
+			if (empty($twigBinds['cacheCatalog']['size']) || empty($twigBinds['cacheClassification']['size']))
+			{
+				$this->generateCacheFiles();
+				return $app->redirect($_SERVER['REQUEST_URI'] . '?regeneratedCaches=1');
+			}
+		}
+
+		if ($twigBinds['cacheCatalog']['size'])
+		{
+			$twigBinds['totalRecords'] = count($app['dbReader']->readDb());
+			$twigBinds['gBooksStats'] = $gBooksDataReader->getStats();
+		}
+
+		if (!empty($_GET['regeneratedCaches']))
+		{
+			$twigBinds['success'] = $app['translator']->trans('The cache files have been automatically generated from Excel database because they were not found.');
+		}
+
 		return $app['twig']->render('dbManagement.twig', array_merge($twigBinds, [
-			'uploadedDb'  => [
-				'name'  => basename($app['config']['uploadedDb']),
-				'mTime' => filemtime($app['config']['uploadedDb']),
-				'size'  => filesize($app['config']['uploadedDb']),
-			],
-			'cacheCatalog' => [
-				'name'  => basename($app['config']['cacheCatalog']),
-				'mTime' => filemtime($app['config']['cacheCatalog']),
-				'size'  => filesize($app['config']['cacheCatalog']),
-			],
-			'cacheClassification' => [
-				'name'  => basename($app['config']['cacheClassification']),
-				'mTime' => filemtime($app['config']['cacheClassification']),
-				'size'  => filesize($app['config']['cacheClassification']),
-			],
-			'loadJSFramework' 	=> true,
-			'totalRecords'		=> count($app['dbReader']->readDb()),
-			'gBooksStats'		=> $gBooksDataReader->getStats()
+			'topNotification'	=> $topNotification,
+			'notification'		=> $notification,
+			'loadJSFramework' 	=> true
 		]));
 	}
 
-	public function post(\Silex\Application $app)
+	protected function checkFiles(Application $app, &$twigBinds)
+	{
+		$files = [
+			'uploadedDb',
+			'cacheCatalog',
+			'cacheClassification',
+		];
+
+		foreach ($files as $file)
+		{
+			if (file_exists($app['config'][$file]))
+			{
+				$twigBinds[$file] = [
+					'name'  => basename($app['config'][$file]),
+					'mTime' => filemtime($app['config'][$file]),
+					'size'  => filesize($app['config'][$file]),
+				];
+			}
+			else
+			{
+				$twigBinds[$file] = [
+					'name'  => basename($app['config'][$file]),
+					'mTime' => null,
+					'size'  => null
+				];
+			}
+		}
+	}
+
+	public function post(Application $app)
 	{
 		$this->app = $app;
 

@@ -17,6 +17,13 @@
 		</div>
 		{% endif %}
 
+		{% if notification is defined and notification is not empty %}
+		<div class="notify error">
+			<strong>{{ notification }}</strong><br>
+			{{ error|default('') }}
+		</div>
+		{% endif %}
+
 		<h2>{% trans %}Library Database management{% endtrans %}</h2>
 
 		<div class="col50">
@@ -24,21 +31,33 @@
 
 			<div class="file-details">
 				<strong>{{ uploadedDb.name }}</strong><br>
-				<time>{{ uploadedDb.mTime|date("r") }}</time><br>
-				{{ (uploadedDb.size / 1000)|round(2) }} kB<br>
+				{% if uploadedDb.size %}
+					<time>{{ uploadedDb.mTime|date("r") }}</time><br>
+					{{ (uploadedDb.size / 1000)|round(2) }} kB<br>
+				{% else %}
+					<strong class="red">{% trans %}Not found{% endtrans %}</strong>
+				{% endif %}
 			</div>
 
 			<div class="small">
 				<h3>{% trans %}Cache files <small>(automatically generated)</small>{% endtrans %}</h3>
 				<p>
 					<strong>{{ cacheCatalog.name }}</strong><br>
-					<time>{{ cacheCatalog.mTime|date("r") }}</time><br>
-					{{ (cacheCatalog.size / 1000)|round(2) }} kB<br>
+					{% if cacheCatalog.size %}
+						<time>{{ cacheCatalog.mTime|date("r") }}</time><br>
+						{{ (cacheCatalog.size / 1000)|round(2) }} kB<br>
+					{% else %}
+						<strong class="red">{% trans %}Not found{% endtrans %}</strong>
+					{% endif %}
 				</p>
 				<p>
 					<strong>{{ cacheClassification.name }}</strong><br>
-					<time>{{ cacheClassification.mTime|date("r") }}</time><br>
-					{{ (cacheClassification.size / 1000)|round(2) }} kB<br>
+					{% if cacheClassification.size %}
+						<time>{{ cacheClassification.mTime|date("r") }}</time><br>
+						{{ (cacheClassification.size / 1000)|round(2) }} kB<br>
+					{% else %}
+						<strong class="red">{% trans %}Not found{% endtrans %}</strong>
+					{% endif %}
 				</p>
 			</div>
 		</div>
@@ -51,36 +70,40 @@
 		</form>
 
 		<hr>
-		<h3>Google Books data</h3>
-		<p>
-			Total books in catalog: <strong>{{ gBooksStats.total }}</strong><br>
-			Books searched in GBooks: <strong>{{ gBooksStats.withGBooks }}</strong><br>
-			Books found in GBooks: <strong>{{ gBooksStats.wighGBooksData }}</strong>
-		</p>
 
-		<h4>{% trans %}Pre-load Google Books data{% endtrans %}</h4>
-		<p>{% trans %}Click "Warm-up" for fetching extra bibliographic data for every book in the DB. You will need to this if your server will have no Internet access on a regular basis.{% endtrans %}
-			<br>{% trans %}Warning: this may take A LOT of time, depending on how many books the catalog has.{% endtrans %}</p>
+		{% if gBooksStats is defined %}
 
-		<div class="gbooks-warmup">
-			<div id="button"><button onclick="warmup()">{% trans %}Warm-up{% endtrans %}</button></div>
-			<div class="results" id="results"></div>
-			<div id="post-results"><img src="{{ global.request.basePath }}/img/loading.svg" alt="{% trans %}Loading...{% endtrans %}" width="20px" height="20px" class="spinner"></div>
-		</div>
+			<h3>Google Books data</h3>
+			<p>
+				Total books in catalog: <strong>{{ gBooksStats.total }}</strong><br>
+				Books searched in GBooks: <strong>{{ gBooksStats.withGBooks }}</strong><br>
+				Books found in GBooks: <strong>{{ gBooksStats.wighGBooksData }}</strong>
+			</p>
+
+			<h4>{% trans %}Pre-load Google Books data{% endtrans %}</h4>
+			<p>{% trans %}Click "Warm-up" for fetching extra bibliographic data for every book in the DB. You will need to this if your server will have no Internet access on a regular basis.{% endtrans %}
+				<br>{% trans %}Warning: this may take A LOT of time, depending on how many books the catalog has.{% endtrans %}</p>
+
+			<div class="gbooks-warmup">
+				<div id="button"><button onclick="warmup()">{% trans %}Warm-up{% endtrans %}</button></div>
+				<div class="results" id="results"></div>
+				<div id="post-results"><img src="{{ global.request.basePath }}/img/loading.svg" alt="{% trans %}Loading...{% endtrans %}" width="20px" height="20px" class="spinner"></div>
+			</div>
+
+		{% endif %}
 
 		<hr>
 
 		<footer class="about">
 			<img src="{{ global.request.basePath }}/img/RMSCatalog-logo-vectorized-text.svg" alt="{% trans %}RMS Catalog logo{% endtrans %}" width="64" height="64">
-			<p>
-				{% trans %}RMS Catalog is a non profit-motivated, free and open source software.{% endtrans %}
-				<br>
-				<a href="mailto:neo-transposer@mail.com">{% trans %}E-mail the author{% endtrans %}</a>. <a href="https://github.com/isra00/RMSCatalog">{% trans %}Source code on GitHub{% endtrans %}</a>.
-			</p>
+			{% trans %}RMS Catalog is a non profit-motivated, free and open source software.{% endtrans %}
+			<br>
+			<a href="mailto:neo-transposer@mail.com">{% trans %}E-mail the author{% endtrans %}</a>. <a href="https://github.com/isra00/RMSCatalog">{% trans %}Source code on GitHub{% endtrans %}</a>.
 		</footer>
 
 	</section>
 
+	{% if gBooksStats is defined %}
 	<script>
 	function warmup() {
 		document.getElementById("post-results").style.display = "block";
@@ -109,5 +132,6 @@
 		});
 	}
 	</script>
+	{% endif %}
 
 {% endblock %}

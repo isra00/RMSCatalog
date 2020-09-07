@@ -70,6 +70,12 @@ return [
 	'Source code on GitHub'
 	=> 'Código fuente en GitHub',
 
+	'Not found'
+	=> 'No encontrado',
+
+	'The cache files have been automatically generated from Excel database because they were not found.'
+	=> 'Los ficheros de cache han sido regenerados automáticamente a partir de la base de datos Excel porque no se habían encontrado.',
+
 
 	//home.twig
 	'Search in our %n% books:'
