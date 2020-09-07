@@ -86,20 +86,6 @@ class ClassificationReader
 		$output = "<ul class='b-class-tree'>";
 		foreach ($codes as $code)
 		{
-			/** Library-specific */
-			/*if (preg_match('/^[a-z]+$/i', $code))
-			{
-				if ('T' == $code)
-				{
-					/*$output .= "<h3>Theology</h3>\n";
-				}
-				else
-				{
-					$output .= "<h3>$code " . $classes[$code] . "</h3>\n";*/
-			/*		continue;
-				}
-			}*/
-
 			$level = count(explode('.', $code));
 
 			if (preg_match('/^[a-z]+$/i', $code))
