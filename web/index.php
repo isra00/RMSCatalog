@@ -25,13 +25,9 @@ $app->register(new \Silex\Provider\TwigServiceProvider(), array(
 
 $app->register(new \Silex\Provider\LocaleServiceProvider());
 $app->register(new \Silex\Provider\TranslationServiceProvider());
-$translations = array();
-foreach ($app['config']['translations'] as $lang=>$file)
-{
-	$translations['messages'][$lang] = include $file;
-}
-$app['translator.domains'] = $translations;
 
+$currentTranslation['messages'][$app['config']['locale']] = include $app['config']['translations'][$app['config']['locale']];
+$app['translator.domains'] = $currentTranslation;
 $app['locale'] = $app['config']['locale'];
 
 /*
