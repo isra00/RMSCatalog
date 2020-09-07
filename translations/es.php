@@ -40,6 +40,18 @@ return [
 	'Upload'
 	=> 'Cargar',
 
+	'Google Books data'
+	=> 'Datos de Google Books',
+
+	'Total books in catalog'
+	=> 'Total de libros en el catálogo',
+
+	'Books searched in GBooks'
+	=> 'Libros buscados en GBooks',
+
+	'Books found in GBooks'
+	=> 'Libros encontrados en GBooks',
+
 	'Pre-load Google Books data'
 	=> 'Pre-cargar datos extra de Google Books',
 

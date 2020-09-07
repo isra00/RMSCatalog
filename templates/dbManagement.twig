@@ -73,11 +73,11 @@
 
 		{% if gBooksStats is defined %}
 
-			<h3>Google Books data</h3>
+			<h3>{% trans %}Google Books data{% endtrans %}</h3>
 			<p>
-				Total books in catalog: <strong>{{ gBooksStats.total }}</strong><br>
-				Books searched in GBooks: <strong>{{ gBooksStats.withGBooks }}</strong><br>
-				Books found in GBooks: <strong>{{ gBooksStats.wighGBooksData }}</strong>
+				{% trans %}Total books in catalog{% endtrans %}: <strong>{{ gBooksStats.total }}</strong><br>
+				{% trans %}Books searched in GBooks{% endtrans %}: <strong>{{ gBooksStats.withGBooks }}</strong><br>
+				{% trans %}Books found in GBooks{% endtrans %}: <strong>{{ gBooksStats.wighGBooksData }}</strong>
 			</p>
 
 			<h4>{% trans %}Pre-load Google Books data{% endtrans %}</h4>
