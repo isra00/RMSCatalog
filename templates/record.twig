@@ -64,7 +64,7 @@
 			</tr>
 			{% endif %}
 
-			{% if record.contents is defined %}
+			{% if record.contents is defined and record.contents|length > 0 %}
 			<tr>
 				<th>{% trans %}Contents:{% endtrans %}</th>
 				<td>{{ record.contents|nl2br }}</td>
