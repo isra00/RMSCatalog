@@ -1,5 +1,11 @@
 		<div class="where">
-			<h6>Where to find this book</h6>
-			👉 Go to the <b>{{ record.section }}</b> room,<br>
-			👉 search the shelf <b>{{ record.location }}</b>
+			<h6>Onde encontrar este livro</h6>
+			👉 Procure o estante <b>{{ record.location }}</b><br>
+			👉 Procure o livro com esta etiqueta:<br>
+
+			<div class="center">
+				<div class="label label-mamre">
+					{{ record.label|nl2br }}
+				</div>
+			</div>
 		</div>
