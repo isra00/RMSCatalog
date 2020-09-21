@@ -43,6 +43,20 @@
 				<td>{{ record.isbn|default('<em>(not recorded)</em>')|trans|raw }}</td>
 			</tr>
 
+			{% if record.subject is defined %}
+			<tr>
+				<th>{% trans %}Subject:{% endtrans %}</th>
+				<td>
+				{% if record.subject|length %}
+					{% for s in record.subject %}
+						<a title="{% trans %}Find all books with this subject{% endtrans %}" href="{{ global.request.basePath }}/match?subject={{ s|url_encode }}">{{ s }}</a><br>
+					{% endfor %}
+				{% else %}
+					{{ record.subject|default('<em>(not recorded)</em>')|trans|raw }}</td>
+				{% endif %}
+			</tr>
+			{% endif %}
+
 			{% if record.seriesIndex %}
 			<tr>
 				<th>{% trans %}N. in the series:{% endtrans %}</th>
@@ -50,10 +64,18 @@
 			</tr>
 			{% endif %}
 
+			{% if record.contents is defined %}
+			<tr>
+				<th>{% trans %}Contents:{% endtrans %}</th>
+				<td>{{ record.contents|nl2br }}</td>
+			</tr>
+			{% endif %}
+
 			<tr>
 				<th>{% trans %}Exemplars:{% endtrans %}</th>
 				<td>{{ record.exemplars }}</td>
 			</tr>
+
 		</table>
 
 		<hr>

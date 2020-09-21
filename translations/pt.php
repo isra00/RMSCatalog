@@ -106,6 +106,12 @@ return [
 	'ISBN:'
 	=> 'ISBN:',
 
+	'Subject:'
+	=> 'Assunto:',
+
+	'Contents:'
+	=> 'Conteúdo:',
+
 	'Call n.:'
 	=> 'Call n.:',
 
@@ -157,10 +163,16 @@ return [
 	=> 'livro(s)',
 
 	'Find all books by this author'
-	=> 'Buscar todos los libros de este autor',
+	=> 'Pesquisar todos os livros deste autor',
+
+	'Find all books with this subject'
+	=> 'Pesquisar todos os livros com este assunto',
 
 	'class'
 	=> 'categoria',
+
+	'subject'
+	=> 'assunto',
 
 	'author'
 	=> 'autor',

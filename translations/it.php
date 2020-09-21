@@ -73,6 +73,9 @@ return [
 	'ISBN:'
 	=> 'ISBN:',
 
+	'Subject:'
+	=> 'Argomento',
+
 	'Exemplars:'
 	=> 'Esemplari:',
 
