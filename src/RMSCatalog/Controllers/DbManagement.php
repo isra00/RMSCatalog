@@ -186,11 +186,14 @@ class DbManagement
 
 			foreach ($this->app['config']['multipleValueFields'] as $field) {
 				
-				$line[$field] = explode('&', $line[$field]);
-				
-				foreach ($line[$field] as &$value)
+				if (!empty($line[$field]))
 				{
-					$value = trim($value);
+					$line[$field] = explode('&', $line[$field]);
+
+					foreach ($line[$field] as &$value)
+					{
+						$value = trim($value);
+					}
 				}
 			}
 
