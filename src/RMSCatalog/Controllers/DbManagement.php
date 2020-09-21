@@ -24,9 +24,9 @@ class DbManagement
 	public function get(Application $app, $twigBinds=[])
 	{
 		$this->app = $app;
-
 		$gBooksDataReader = new \RMSCatalog\GBooksDataReader($app);
 
+		$this->checkDatabaseFolder($app);
 		$this->checkFiles($app, $twigBinds);
 
 		//If Excel file does not exist but caches do, notify and do nothing else
@@ -61,6 +61,16 @@ class DbManagement
 			'notification'		=> $notification,
 			'loadJSFramework' 	=> true
 		]));
+	}
+
+	protected function checkDatabaseFolder(Application $app)
+	{
+		$dbDir = dirname($app['config']['uploadedDb']);
+		if (!file_exists($dbDir))
+		{
+			mkdir($dbDir, 0777, true);
+			chmod($dbDir, 0777);
+		}
 	}
 
 	protected function checkFiles(Application $app, &$twigBinds)
