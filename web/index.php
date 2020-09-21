@@ -2,6 +2,7 @@
 
 require '../vendor/autoload.php';
 
+use \RMSCatalog\SearchEngine;
 use \Symfony\Component\HttpFoundation\Request;
 
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE);
@@ -56,18 +57,32 @@ $app->get('/', function(Request $req) use ($app)
 $app->get('/search', function(Request $req) use ($app)
 {
 	$searchString = trim($req->get('searchBooks'));
-	
+
 	if (empty($searchString))
 	{
 		return $app->redirect($req->getBasePath() . '/');
 	}
 
-	$searchEngine = new \RMSCatalog\SearchEngine($app);
-	$results 	  = $searchEngine->search($searchString);
+	$searchEngine = new SearchEngine($app);
+
+	$urlSearchOnFields = !empty($req->get('searchOnFields'))
+		? array_keys($req->get('searchOnFields'))
+		: null;
+
+	$searchOnFields = array_intersect(
+		$urlSearchOnFields ?? $searchEngine->possibleSearchFields(),
+		$searchEngine->possibleSearchFields()
+	);
+
+	$results = $searchEngine->search($searchString, $searchOnFields);
 
 	return $app['twig']->render('searchResults.twig', [
-		'searchTerm' => $searchString,
-		'results' 	 => $results,
+		'allFields'			=> $searchEngine->possibleSearchFields(),
+		'searchOnFields'	=> $searchOnFields,
+		'searchTerm'		=> $searchString,
+		'results'			=> $results,
+		'urlWithoutParams'	=> $app['url_generator']->generate($req->get('_route')),
+		'showAdvancedSearch'=> true
 	]);
 });
 

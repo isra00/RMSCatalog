@@ -2,7 +2,7 @@
 
 {% block content %}
 
-	<section class="main">
+	<section class="main page-search">
 
 		{% if matchFields is defined %}
 		<h1>
@@ -14,6 +14,23 @@
 		</h1>
 		{% else %}
 		<h1>{% trans with {'%results%': results|length, '%searchTerm%': searchTerm} %}Found %results% results with “%searchTerm%”{% endtrans %}</h1>
+		{% endif %}
+
+		{% if showAdvancedSearch %}
+		<form method="get" action="{{ urlWithoutParams }}" class="search-fields" onchange="this.submit()">
+
+			<input type="hidden" name="searchBooks" value="{{ searchTerm }}">
+
+			<fieldset>
+				<legend>Search on fields</legend>
+
+			{% for field in allFields %}
+				<input type="checkbox" name="searchOnFields[{{ field }}]" {% if field in searchOnFields %}checked="checked" {% endif %} id="field-{{ field }}">
+				<label for="field-{{ field }}">{{ field|trans }}</label>
+			{% endfor %}
+
+			</fieldset>
+		</form>
 		{% endif %}
 
 		<table class="search-results">

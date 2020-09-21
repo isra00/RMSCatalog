@@ -14,15 +14,24 @@ class SearchEngine
 	/**
 	 * Matches in different fields are multiplied by this coefficient.
 	 */
-	protected $searchFields = [
+	const SEARCH_FIELDS = [
 		'title'		=> 1, 
 		'subtitle'	=> 0.8, 
 		'author'	=> 0.9,
+		'subject'	=> 0.8
 	];
 
 	public function __construct(Application $app)
 	{
 		$this->app = $app;
+	}
+
+	public function possibleSearchFields()
+	{
+		return array_intersect(
+			$this->app['config']['dbColumns'], 
+			array_keys(self::SEARCH_FIELDS)
+		);
 	}
 
 	/**
@@ -32,8 +41,15 @@ class SearchEngine
 	 * are shown with the flattened characters. It's not a perfect solution, but
 	 * it's been incredibly fast to code it and it works ;-)
 	 */
-	public function search($searchString)
+	public function search($searchString, $searchOnFields=null)
 	{
+		//Some fields may not exist in the Excel file
+		$possibleSearchFields = $this->possibleSearchFields();
+
+		$searchFields = empty($searchOnFields)
+			? $possibleSearchFields
+			: array_intersect($possibleSearchFields, $searchOnFields);
+
 		$allRecords = $this->app['dbReader']->readDb();
 
 		$results = [];
@@ -43,12 +59,13 @@ class SearchEngine
 			$this->flattenLetters(strtolower($searchString))
 		);
 
-		$searchFields = array_keys($this->searchFields);
-
 		foreach ($allRecords as &$record)
 		{
 			foreach ($this->app['config']['multipleValueFields'] as $multipleField) {
-				$record[$multipleField] = implode(' & ', $record[$multipleField]);
+				if (!empty($record[$multipleField]))
+				{
+					$record[$multipleField] = implode(' & ', $record[$multipleField]);
+				}
 			}
 
 			foreach ($searchFields as $field)
@@ -74,12 +91,12 @@ class SearchEngine
 						if (preg_match("/(.*)$searchWord(.*)/i", $word, $match))
 						{
 							//1 point if word matched (not exact full word)
-							$score += 1 * $this->searchFields[$field];
+							$score += 1 * self::SEARCH_FIELDS[$field];
 
 							if (empty($match[1][0]) && empty($match[2][0]))
 							{
 								//+2 points for full word
-								$score += 2 * $this->searchFields[$field];
+								$score += 2 * self::SEARCH_FIELDS[$field];
 							}
 
 							$wordsMatched[] = $searchWord;
@@ -98,12 +115,12 @@ class SearchEngine
 							if (count($searchWords) > 1 && preg_match("/(.*)$searchString(.*)/i", $record[$field], $match))
 							{
 								// +2 points for exact phrase
-								$score += 2 * $this->searchFields[$field];
+								$score += 2 * self::SEARCH_FIELDS[$field];
 
 								if (empty($match[1][0]) && empty($match[2][0]))
 								{
 									//+2 points if exact phrase is exact field
-									$score += 2 * $this->searchFields[$field];
+									$score += 2 * self::SEARCH_FIELDS[$field];
 								}
 							}
 

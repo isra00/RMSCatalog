@@ -71,7 +71,8 @@ class Match
 
 		return $app['twig']->render('searchResults.twig', [
 			'results' 		=> $results,
-			'matchFields' 	=> $translatedRequestedFields
+			'matchFields' 	=> $translatedRequestedFields,
+			'showAdvancedSearch' => false,
 		]);
 	}
 }

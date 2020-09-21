@@ -150,6 +150,15 @@ header {
 
 /******* SEARCH RESULTS ******/
 
+.page-search .search-fields {
+	margin-bottom: 1em;
+	font-size: .95em;
+}
+	.page-search .search-fields label {
+		padding-right: .5em;
+		cursor: pointer;
+	}
+
 .search-results {
 	list-style: none;
 	padding: 0;
