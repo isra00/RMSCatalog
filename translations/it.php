@@ -140,6 +140,7 @@ return [
 	'Found %results% results with “%searchTerm%”'
 	=> 'Si sono trovati %results% risultati con “%searchTerm%”',
 
-
+	/*'Search on fields:'
+	=> 'Buscar en los campos:',*/
 
 ];

@@ -154,9 +154,14 @@ header {
 	margin-bottom: 1em;
 	font-size: .95em;
 }
+	.page-search .search-fields span {
+		display: inline-block;
+	}
+
 	.page-search .search-fields label {
 		padding-right: .5em;
 		cursor: pointer;
+		hyphens: none;
 	}
 
 .search-results {

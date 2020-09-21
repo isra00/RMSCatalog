@@ -168,6 +168,12 @@ return [
 	'Find all books with this subject'
 	=> 'Buscar todos los libros de este tema',
 
+	'title'
+	=> 'título',
+
+	'subtitle'
+	=> 'subtítulo',
+	
 	'class'
 	=> 'clase',
 
@@ -183,6 +189,7 @@ return [
 	'Found %results% results with “%searchTerm%”'
 	=> 'Se encontraron %results% resultados con “%searchTerm%”',
 
-
+	'Search on fields:'
+	=> 'Buscar en los campos:',
 
 ];

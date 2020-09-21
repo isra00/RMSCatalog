@@ -22,11 +22,13 @@
 			<input type="hidden" name="searchBooks" value="{{ searchTerm }}">
 
 			<fieldset>
-				<legend>Search on fields</legend>
+				<legend>{% trans %}Search on fields:{% endtrans %}</legend>
 
 			{% for field in allFields %}
-				<input type="checkbox" name="searchOnFields[{{ field }}]" {% if field in searchOnFields %}checked="checked" {% endif %} id="field-{{ field }}">
-				<label for="field-{{ field }}">{{ field|trans }}</label>
+				<span>
+					<input type="checkbox" name="searchOnFields[{{ field }}]" {% if field in searchOnFields %}checked="checked" {% endif %} id="field-{{ field }}">
+					<label for="field-{{ field }}">{{ field|trans }}</label>
+				</span>
 			{% endfor %}
 
 			</fieldset>
