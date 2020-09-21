@@ -2,7 +2,6 @@
 
 require '../vendor/autoload.php';
 
-use \RMSCatalog\SearchEngine;
 use \Symfony\Component\HttpFoundation\Request;
 
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE);
@@ -54,38 +53,6 @@ $app->get('/', function(Request $req) use ($app)
 	]);
 });
 
-$app->get('/search', function(Request $req) use ($app)
-{
-	$searchString = trim($req->get('searchBooks'));
-
-	if (empty($searchString))
-	{
-		return $app->redirect($req->getBasePath() . '/');
-	}
-
-	$searchEngine = new SearchEngine($app);
-
-	$urlSearchOnFields = !empty($req->get('searchOnFields'))
-		? array_keys($req->get('searchOnFields'))
-		: null;
-
-	$searchOnFields = array_intersect(
-		$urlSearchOnFields ?? $searchEngine->possibleSearchFields(),
-		$searchEngine->possibleSearchFields()
-	);
-
-	$results = $searchEngine->search($searchString, $searchOnFields);
-
-	return $app['twig']->render('searchResults.twig', [
-		'allFields'			=> $searchEngine->possibleSearchFields(),
-		'searchOnFields'	=> $searchOnFields,
-		'searchTerm'		=> $searchString,
-		'results'			=> $results,
-		'urlWithoutParams'	=> $app['url_generator']->generate($req->get('_route')),
-		'showAdvancedSearch'=> true
-	]);
-});
-
 $app->get('/record/{id}', function(Request $req, int $id) use ($app)
 {
 	$record = $app['dbReader']->cookRecord(
@@ -118,6 +85,7 @@ $app->get('/db',  "RMSCatalog\\Controllers\\DbManagement::get");
 $app->post('/db', "RMSCatalog\\Controllers\\DbManagement::post");
 
 $app->get('/match', "RMSCatalog\\Controllers\\Match::get");
+$app->get('/search', "RMSCatalog\\Controllers\\Search::get");
 
 
 $app->run();
