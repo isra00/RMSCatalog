@@ -418,11 +418,16 @@ header {
 		vertical-align: top;
 		text-align: left;
 		padding-right: .3em;
+		hyphens: none;
 	}
 
 	/* Sometimes the description has HTML paragraphs */
 	.bibliodata td p:first-child {
 		margin-top: 0;
+	}
+
+	.bibliodata td em {
+		color: #555;
 	}
 
 
