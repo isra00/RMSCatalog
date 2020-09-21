@@ -12,10 +12,12 @@ class DbReader
 	protected $app;
 
 	protected $dbCatalog;
+	protected $flags;
 
 	public function __construct(Application $app)
 	{
 		$this->app = $app;
+		$this->flags = array_merge(...array_values($this->app['config']['flagsFromLanguage']));
 	}
 
 	public function readDb()
@@ -58,15 +60,13 @@ class DbReader
 			$record['subtitle'] = null;
 		}
 
-		$flags = $this->app['config']['flagsFromLanguage'];
-
 		if (!empty($record['language']))
 		{
 			$record['flag'] = [];
 
 			foreach ($record['language'] as $lang)
 			{
-				$record['flag'][] = isset($flags[mb_strtoupper($lang)]) ? $flags[mb_strtoupper($lang)] : null;
+				$record['flag'][] = isset($this->flags[mb_strtoupper($lang)]) ? $this->flags[mb_strtoupper($lang)] : null;
 			}
 		}
 
