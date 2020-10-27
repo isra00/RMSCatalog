@@ -38,6 +38,13 @@
 				<td>{{ record.year }}</td>
 			</tr>
 
+			{% if record.publisher is defined and record.publisher|length > 0 %}
+			<tr>
+				<th>{% trans %}Publisher:{% endtrans %}</th>
+				<td>{{ record.publisher }}</td>
+			</tr>
+			{% endif %}
+
 			<tr>
 				<th>{% trans %}ISBN:{% endtrans %}</th>
 				<td>{{ record.isbn|default('<em>(not recorded)</em>')|trans|raw }}</td>
