@@ -1,6 +1,10 @@
 		<div class="where">
 			<h6>Onde encontrar este livro</h6>
+
+			{% if not record.location is empty and not 0 == record.location %}
 			👉 Procure o estante <b>{{ record.location }}</b><br>
+			{% endif %}
+
 			👉 Procure o livro com esta etiqueta:<br>
 
 			<div class="center">
