@@ -16,7 +16,7 @@ return [
 	'whereToFindTemplate'	=> 'mamre.twig',
 
 	//Leave blank or null not to show the "Go to E-Library" link on the header
-	'showLinkELibrary'			=> '//our-e-library.com'
+	'showLinkELibrary'			=> '//our-e-library.com',
 
 	//Fetch additional book metadata from Google Books
 	'fetchDataFromInternet'	=> true,
